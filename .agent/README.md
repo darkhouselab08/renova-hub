@@ -1,158 +1,103 @@
-# 🤖 Agent Workflows - Renova-Hub
+# Guía de Workflows y Contexto del Agente
 
-Esta carpeta contiene workflows automatizados para facilitar el desarrollo del proyecto.
-
-## 📚 Workflows Disponibles
-
-### 1. `/component-creation` - Crear Componentes
-
-Guía paso a paso para crear componentes siguiendo las convenciones del proyecto.
-
-**Cuándo usar**: Al crear cualquier componente nuevo (layout, section, ui)
-
-**Comando**: No hay comando específico, sigue el workflow manualmente
+Este directorio contiene workflows automatizados y contexto para que Gemini (tu Tech Lead Agent) trabaje de forma más eficiente.
 
 ---
 
-### 2. `/testing` - Testing y Verificación
+## 📁 Archivos en este Directorio
 
-Proceso completo de testing antes de hacer merge.
+### `CONTEXT.md` ⭐ **NUEVO**
 
-**Cuándo usar**: Antes de crear un Pull Request
+**Para ti, Jorge**: Aquí pegas información de otros chats, investigaciones, videos de YouTube, artículos, etc.
 
-**Comandos clave**:
+**Casos de uso**:
 
-```bash
-npm run lint
-npx tsc --noEmit
-npm run build
-```
+- 📝 Conversaciones de otros chats con Gemini que quieras que recuerde
+- 🎥 Notas de videos de YouTube con novedades (CSS, React, Next.js, etc.)
+- 🔬 Investigaciones con NotebookLM
+- 💡 Ideas que encuentres en artículos o documentación
+- 🛠️ Herramientas nuevas que quieras explorar
 
----
+**Cómo funciona**:
 
-### 3. `/deploy` - Despliegue a Producción
-
-Proceso de deploy usando Vercel.
-
-**Cuándo usar**: Al hacer deploy a staging o producción
-
-**Plataforma**: Vercel (automático desde GitHub)
+1. Abres `CONTEXT.md`
+2. Pegas la información en la sección correspondiente
+3. La próxima vez que hables con Gemini, le dices "lee CONTEXT.md"
+4. Gemini aplicará esa información al proyecto
 
 ---
 
-## 🚀 Cómo Usar los Workflows
+### `workflows/`
 
-### Opción 1: Leer el archivo
+Contiene workflows automatizados para tareas comunes:
 
-```bash
-cat .agent/workflows/[nombre-workflow].md
-```
+- **`component-creation.md`**: Crear nuevos componentes
+- **`testing.md`**: Testing y verificación
+- **`deploy.md`**: Deployment a producción
 
-### Opción 2: Abrir en editor
-
-```bash
-code .agent/workflows/[nombre-workflow].md
-```
-
-### Opción 3: Usar con Gemini
-
-Simplemente menciona el workflow:
-
-- "Sigue el workflow de component-creation"
-- "Ejecuta el workflow de testing"
-- "Ayúdame con el workflow de deploy"
+**Uso**: Dile a Gemini "usa el workflow de [nombre]" o usa `/component-creation`
 
 ---
 
-## 📝 Estructura de un Workflow
+## 🚀 Ejemplos de Uso
 
-Cada workflow sigue este formato:
-
-````markdown
----
-description: [Descripción corta]
----
-
-# Workflow: [Nombre]
-
-## Fase 1: [Nombre de Fase]
-
-### Paso 1: [Descripción]
-
-[Instrucciones detalladas]
-
-// turbo (opcional)
-
-```bash
-[comando que se puede auto-ejecutar]
-```
-````
-
-````
-
-**Nota sobre `// turbo`**:
-- Indica que el comando es seguro para auto-ejecutar
-- Gemini puede ejecutarlo automáticamente sin pedir permiso
-- Solo se usa para comandos de lectura o verificación
-
----
-
-## 🔄 Agregar Nuevos Workflows
-
-### Template para nuevo workflow:
+### Ejemplo 1: Video de YouTube
 
 ```markdown
----
-description: [Descripción breve del workflow]
----
+Encontraste un video sobre CSS Container Queries:
 
-# Workflow: [Nombre del Workflow]
-
-[Descripción detallada]
-
-## Fase 1: [Nombre]
-### Paso 1: [Acción]
-[Instrucciones]
-
-### Paso 2: [Acción]
-[Instrucciones]
-
----
-
-**Notas**:
-- [Notas importantes]
-````
-
-### Guardar en:
-
-```
-.agent/workflows/[nombre-descriptivo].md
+1. Abre CONTEXT.md
+2. En la sección "Videos de YouTube - Novedades"
+3. Pega:
+   - Título del video
+   - Link
+   - Notas clave que quieras aplicar
+4. Dile a Gemini: "Lee CONTEXT.md y aplica CSS Container Queries al Hero"
 ```
 
+### Ejemplo 2: Investigación con NotebookLM
+
+```markdown
+Hiciste una investigación sobre mejores prácticas de e-commerce:
+
+1. Abre CONTEXT.md
+2. En "Investigaciones Pendientes > NotebookLM"
+3. Pega el resumen generado por NotebookLM
+4. Dile a Gemini: "Lee CONTEXT.md y actualiza ARCHITECTURE.md con las mejores prácticas de e-commerce"
+```
+
+### Ejemplo 3: Chat de Otro Día
+
+```markdown
+Tuviste una conversación con Gemini sobre animaciones:
+
+1. Abre CONTEXT.md
+2. En "Ideas de Otros Chats"
+3. Pega la conversación relevante
+4. Dile a Gemini: "Lee CONTEXT.md y aplica las animaciones que discutimos antes"
+```
+
 ---
 
-## 🎯 Mejores Prácticas
+## 💡 Tips
 
-1. **Mantén workflows actualizados**: Si cambias un proceso, actualiza el workflow
-2. **Sé específico**: Instrucciones claras y detalladas
-3. **Incluye ejemplos**: Código de ejemplo cuando sea relevante
-4. **Usa checklists**: Para pasos que requieren verificación
-5. **Documenta comandos**: Explica qué hace cada comando
-
----
-
-## 🔮 Workflows Futuros
-
-Ideas para workflows adicionales:
-
-- [ ] `database-migration.md` - Proceso de migraciones de DB
-- [ ] `feature-branch.md` - Crear y gestionar feature branches
-- [ ] `hotfix.md` - Proceso de hotfixes urgentes
-- [ ] `code-review.md` - Guía para hacer code reviews
-- [ ] `performance-audit.md` - Auditoría de performance
-- [ ] `seo-checklist.md` - Verificación de SEO
+- **No borres nada** de CONTEXT.md, solo agrega
+- **Organiza por fechas** para mantener historial
+- **Sé específico** en lo que quieres aplicar
+- **Usa secciones** para mantener orden
 
 ---
 
-**Mantenido por**: Jorge Franco  
+## 🤖 Para Gemini
+
+Cuando Jorge te pida leer CONTEXT.md:
+
+1. Lee TODO el archivo completo
+2. Identifica qué es nuevo desde la última vez
+3. Pregunta qué quiere aplicar específicamente
+4. Sugiere implementaciones concretas
+5. Actualiza documentación si es necesario
+
+---
+
 **Última actualización**: 2026-02-05
