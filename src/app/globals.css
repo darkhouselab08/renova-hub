@@ -1,11 +1,1 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-}
+@import "tailwindcss";

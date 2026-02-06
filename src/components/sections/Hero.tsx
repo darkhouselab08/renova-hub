@@ -1,267 +1,321 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 /**
  * Hero Section - Sección principal de la landing page
- *
- * Características:
- * - Diseño premium con gradiente azul a madera
- * - Layout responsive (stack en mobile, grid en desktop)
- * - Tipografía Playfair Display para título
- * - Imagen antes/después de restauración
- * - Dos CTAs: primario y secundario
- *
- * @example
- * ```tsx
- * <Hero />
- * ```
+ * 
+ * NOTA: Usando estilos inline debido a problemas de compilación con Tailwind 4
  */
 
-interface HeroProps {
-  className?: string;
-}
-
-export default function Hero({ className = "" }: HeroProps) {
+export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   return (
-    <section
-      className={`
-        relative
-        min-h-screen
-        flex items-center
-        bg-gradient-to-br from-blue-600 via-blue-500 to-amber-700
-        overflow-hidden
-        ${className}
-      `}
+    <section 
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'linear-gradient(135deg, #3b82f6 0%, #3b82f6 50%, #b45309 100%)',
+        overflow: 'hidden'
+      }}
     >
-      {/* Overlay para mejorar legibilidad */}
-      <div className="absolute inset-0 bg-black/20" />
-
-      {/* Elementos decorativos */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 left-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl" />
-
+      {/* Overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.2)'
+      }} />
+      
       {/* Contenido principal */}
-      <div
-        className="
-        relative
-        w-full
-        max-w-7xl
-        mx-auto
-        px-4 sm:px-6 lg:px-8
-        py-20 md:py-24
-      "
-      >
-        <div
-          className="
-          grid
-          grid-cols-1
-          lg:grid-cols-2
-          gap-12 lg:gap-16
-          items-center
-        "
-        >
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: isMobile ? '60px 16px' : '80px 24px'
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: !isMobile && !isTablet ? '1fr 1fr' : '1fr',
+          gap: isMobile ? '32px' : '48px',
+          alignItems: 'center'
+        }}>
           {/* Columna izquierda: Contenido */}
-          <div className="space-y-8 text-center lg:text-left">
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px',
+            textAlign: !isMobile && !isTablet ? 'left' : 'center'
+          }}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-white">
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px 16px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(4px)',
+              borderRadius: '9999px',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              alignSelf: !isMobile && !isTablet ? 'flex-start' : 'center'
+            }}>
+              <div style={{
+                width: '8px',
+                height: '8px',
+                backgroundColor: '#60a5fa',
+                borderRadius: '9999px',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }} />
+              <span style={{
+                fontSize: '14px',
+                fontWeight: 500,
+                color: 'white'
+              }}>
                 Restauración Profesional
               </span>
             </div>
-
+            
             {/* Título principal */}
-            <h1
-              className="
-              font-display
-              text-4xl sm:text-5xl lg:text-6xl
-              font-bold
-              text-white
-              leading-tight
-              tracking-tight
-            "
-            >
-              Transformamos tus Muebles en{" "}
-              <span className="text-amber-200">Obras de Arte</span>
+            <h1 style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: isMobile ? '36px' : isTablet ? '48px' : '60px',
+              fontWeight: 700,
+              color: 'white',
+              lineHeight: 1.2,
+              margin: 0
+            }}>
+              Transformamos tus Muebles en{' '}
+              <span style={{ color: '#fef3c7' }}>
+                Obras de Arte
+              </span>
             </h1>
-
+            
             {/* Subtítulo */}
-            <p
-              className="
-              text-lg sm:text-xl
-              text-blue-50
-              max-w-xl
-              mx-auto lg:mx-0
-              leading-relaxed
-            "
-            >
-              Restauración profesional con más de 10 años de experiencia.
+            <p style={{
+              fontSize: isMobile ? '18px' : '20px',
+              color: '#eff6ff',
+              maxWidth: '600px',
+              lineHeight: 1.6,
+              margin: !isMobile && !isTablet ? 0 : '0 auto'
+            }}>
+              Restauración profesional con más de 10 años de experiencia. 
               Devolvemos la vida a tus muebles favoritos.
             </p>
-
+            
             {/* CTAs */}
-            <div
-              className="
-              flex
-              flex-col sm:flex-row
-              gap-4
-              justify-center lg:justify-start
-            "
-            >
+            <div style={{
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              gap: '16px',
+              justifyContent: !isMobile && !isTablet ? 'flex-start' : 'center'
+            }}>
               <Link
                 href="#galeria"
-                className="
-                  group
-                  inline-flex items-center justify-center
-                  gap-2
-                  px-8 py-4
-                  bg-blue-600
-                  text-white
-                  font-semibold
-                  rounded-lg
-                  shadow-lg shadow-blue-900/50
-                  transition-all duration-200
-                  hover:bg-blue-700
-                  hover:scale-105
-                  hover:shadow-xl hover:shadow-blue-900/60
-                  active:scale-95
-                "
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  padding: '16px 32px',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#1d4ed8';
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#2563eb';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
               >
                 Ver Galería
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
+                <svg 
+                  style={{ width: '20px', height: '20px' }}
+                  fill="none" 
+                  stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
-
+              
               <Link
                 href="#cotizacion"
-                className="
-                  inline-flex items-center justify-center
-                  px-8 py-4
-                  bg-transparent
-                  text-white
-                  font-semibold
-                  rounded-lg
-                  border-2 border-white/30
-                  backdrop-blur-sm
-                  transition-all duration-200
-                  hover:bg-white/10
-                  hover:border-white/50
-                  active:scale-95
-                "
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '16px 32px',
+                  backgroundColor: 'transparent',
+                  color: 'white',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(4px)',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                }}
               >
                 Solicitar Cotización
               </Link>
             </div>
           </div>
-
+          
           {/* Columna derecha: Imagen Antes/Después */}
-          <div className="relative">
-            <div
-              className="
-              relative
-              aspect-square
-              max-w-lg
-              mx-auto
-              rounded-2xl
-              overflow-hidden
-              shadow-2xl
-              ring-1 ring-white/10
-            "
-            >
-              {/* Contenedor de imágenes */}
-              <div className="relative w-full h-full flex">
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              position: 'relative',
+              aspectRatio: '1',
+              maxWidth: '512px',
+              margin: '0 auto',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                display: 'flex'
+              }}>
                 {/* Antes */}
-                <div className="relative w-1/2 h-full">
+                <div style={{ position: 'relative', width: '50%', height: '100%' }}>
                   <Image
                     src="/images/hero/chair-before.png"
                     alt="Silla antigua antes de restaurar"
                     fill
-                    className="object-cover"
+                    style={{ objectFit: 'cover' }}
                     priority
                   />
-                  <div className="absolute bottom-4 left-4 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded-full">
-                    <span className="text-xs font-medium text-white">
-                      Antes
-                    </span>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '16px',
+                    left: '16px',
+                    padding: '6px 12px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                    backdropFilter: 'blur(4px)',
+                    borderRadius: '9999px'
+                  }}>
+                    <span style={{
+                      fontSize: '12px',
+                      fontWeight: 500,
+                      color: 'white'
+                    }}>Antes</span>
                   </div>
                 </div>
-
+                
                 {/* Después */}
-                <div className="relative w-1/2 h-full">
+                <div style={{ position: 'relative', width: '50%', height: '100%' }}>
                   <Image
                     src="/images/hero/chair-after.png"
                     alt="Silla restaurada profesionalmente"
                     fill
-                    className="object-cover"
+                    style={{ objectFit: 'cover' }}
                     priority
                   />
-                  <div className="absolute bottom-4 right-4 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded-full">
-                    <span className="text-xs font-medium text-white">
-                      Después
-                    </span>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '16px',
+                    right: '16px',
+                    padding: '6px 12px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                    backdropFilter: 'blur(4px)',
+                    borderRadius: '9999px'
+                  }}>
+                    <span style={{
+                      fontSize: '12px',
+                      fontWeight: 500,
+                      color: 'white'
+                    }}>Después</span>
                   </div>
                 </div>
-
+                
                 {/* Línea divisoria */}
-                <div className="absolute inset-y-0 left-1/2 w-0.5 bg-white/30 -translate-x-1/2" />
-
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  left: '50%',
+                  width: '2px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  transform: 'translateX(-50%)'
+                }} />
+                
                 {/* Icono central */}
-                <div
-                  className="
-                  absolute
-                  top-1/2 left-1/2
-                  -translate-x-1/2 -translate-y-1/2
-                  w-12 h-12
-                  bg-white
-                  rounded-full
-                  flex items-center justify-center
-                  shadow-lg
-                  ring-4 ring-white/20
-                "
-                >
-                  <svg
-                    className="w-6 h-6 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
+                <div style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '48px',
+                  height: '48px',
+                  backgroundColor: 'white',
+                  borderRadius: '9999px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3)',
+                  border: '4px solid rgba(255, 255, 255, 0.2)'
+                }}>
+                  <svg 
+                    style={{ width: '24px', height: '24px', color: '#2563eb' }}
+                    fill="none" 
+                    stroke="currentColor" 
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </div>
               </div>
             </div>
-
-            {/* Elemento decorativo */}
-            <div
-              className="
-              absolute
-              -bottom-6 -right-6
-              w-32 h-32
-              bg-amber-500/20
-              rounded-full
-              blur-2xl
-              -z-10
-            "
-            />
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+      `}</style>
     </section>
   );
 }
