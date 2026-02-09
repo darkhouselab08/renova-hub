@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+/* ===== THEME SYSTEM CSS VARIABLES ===== */
+
+/* Default theme: Heritage Innovation (Hybrid) */
+:root {
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-primary: #d4af37;
+  --color-secondary: #0f172a;
+  --color-text: #1e293b;
+  --color-accent: #059669;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Classic Luxury Theme */
+:root[data-theme="classic"] {
+  --color-background: #fef3c7;
+  --color-surface: #ffffff;
+  --color-primary: #d4af37;
+  --color-secondary: #5c4033;
+  --color-text: #0f172a;
+  --color-accent: #059669;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Dark Luxury Theme */
+:root[data-theme="dark"] {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-primary: #d4af37;
+  --color-secondary: #818cf8;
+  --color-text: #f8fafc;
+  --color-accent: #10b981;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Smooth transitions when switching themes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

@@ -4,318 +4,139 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-/**
- * Hero Section - Sección principal de la landing page
- * 
- * NOTA: Usando estilos inline debido a problemas de compilación con Tailwind 4
- */
-
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
   
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
-    };
-    
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
   return (
-    <section 
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        background: 'linear-gradient(135deg, #3b82f6 0%, #3b82f6 50%, #b45309 100%)',
-        overflow: 'hidden'
-      }}
-    >
-      {/* Overlay */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.2)'
-      }} />
-      
-      {/* Contenido principal */}
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: isMobile ? '60px 16px' : '80px 24px'
-      }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: !isMobile && !isTablet ? '1fr 1fr' : '1fr',
-          gap: isMobile ? '32px' : '48px',
-          alignItems: 'center'
-        }}>
-          {/* Columna izquierda: Contenido */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px',
-            textAlign: !isMobile && !isTablet ? 'left' : 'center'
-          }}>
+    <section className="relative min-h-screen flex items-center pt-16" style={{ backgroundColor: 'var(--color-background)' }}>
+      {/* Content Container */}
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Column: Content */}
+          <div className="flex flex-col gap-8 text-center md:text-left">
             {/* Badge */}
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(4px)',
-              borderRadius: '9999px',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              alignSelf: !isMobile && !isTablet ? 'flex-start' : 'center'
-            }}>
-              <div style={{
-                width: '8px',
-                height: '8px',
-                backgroundColor: '#60a5fa',
-                borderRadius: '9999px',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-              }} />
-              <span style={{
-                fontSize: '14px',
-                fontWeight: 500,
-                color: 'white'
-              }}>
-                Restauración Profesional
-              </span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border self-center md:self-start"
+                 style={{ 
+                   backgroundColor: 'var(--color-surface)', 
+                   borderColor: 'var(--color-primary)',
+                   color: 'var(--color-text)'
+                 }}>
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--color-accent)' }} />
+              <span className="text-sm font-medium">Expert Furniture Refinishing</span>
             </div>
             
-            {/* Título principal */}
-            <h1 style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: isMobile ? '36px' : isTablet ? '48px' : '60px',
-              fontWeight: 700,
-              color: 'white',
-              lineHeight: 1.2,
-              margin: 0
-            }}>
-              Transformamos tus Muebles en{' '}
-              <span style={{ color: '#fef3c7' }}>
-                Obras de Arte
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                style={{ 
+                  fontFamily: 'var(--font-heading)',
+                  color: 'var(--color-text)'
+                }}>
+              Transform Your Furniture with{' '}
+              <span style={{ color: 'var(--color-primary)' }}>
+                Custom Paint & Finishes
               </span>
             </h1>
             
-            {/* Subtítulo */}
-            <p style={{
-              fontSize: isMobile ? '18px' : '20px',
-              color: '#eff6ff',
-              maxWidth: '600px',
-              lineHeight: 1.6,
-              margin: !isMobile && !isTablet ? 0 : '0 auto'
-            }}>
-              Restauración profesional con más de 10 años de experiencia. 
-              Devolvemos la vida a tus muebles favoritos.
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl max-w-2xl mx-auto md:mx-0 opacity-80"
+               style={{ color: 'var(--color-text)' }}>
+              Professional refinishing for dressers, nightstands, desks, and more. 
+              Serving the Hamptons with premium paint finishes and expert craftsmanship.
             </p>
             
             {/* CTAs */}
-            <div style={{
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row',
-              gap: '16px',
-              justifyContent: !isMobile && !isTablet ? 'flex-start' : 'center'
-            }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
-                href="#galeria"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  padding: '16px 32px',
-                  backgroundColor: '#2563eb',
-                  color: 'white',
-                  fontWeight: 600,
-                  borderRadius: '8px',
-                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#1d4ed8';
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#2563eb';
-                  e.currentTarget.style.transform = 'scale(1)';
+                href="#gallery"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
+                style={{ 
+                  backgroundColor: 'var(--color-primary)',
+                  color: 'var(--color-background)'
                 }}
               >
-                Ver Galería
-                <svg 
-                  style={{ width: '20px', height: '20px' }}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
+                View Gallery
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
               
               <Link
-                href="#cotizacion"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '16px 32px',
-                  backgroundColor: 'transparent',
-                  color: 'white',
-                  fontWeight: 600,
-                  borderRadius: '8px',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
-                  backdropFilter: 'blur(4px)',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                href="#quote"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold border-2 transition-all hover:scale-105"
+                style={{ 
+                  borderColor: 'var(--color-primary)',
+                  color: 'var(--color-text)',
+                  backgroundColor: 'transparent'
                 }}
               >
-                Solicitar Cotización
+                Request Quote
               </Link>
             </div>
           </div>
           
-          {/* Columna derecha: Imagen Antes/Después */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              position: 'relative',
-              aspectRatio: '1',
-              maxWidth: '512px',
-              margin: '0 auto',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-              border: '1px solid rgba(255, 255, 255, 0.1)'
-            }}>
-              <div style={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
-                display: 'flex'
-              }}>
-                {/* Antes */}
-                <div style={{ position: 'relative', width: '50%', height: '100%' }}>
+          {/* Right Column: Before/After Image */}
+          <div className="relative">
+            <div className="relative aspect-square max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl border"
+                 style={{ borderColor: 'var(--color-primary)' }}>
+              <div className="relative w-full h-full flex">
+                {/* Before */}
+                <div className="relative w-1/2 h-full">
                   <Image
                     src="/images/hero/chair-before.png"
-                    alt="Silla antigua antes de restaurar"
+                    alt="Old chair before restoration"
                     fill
                     style={{ objectFit: 'cover' }}
                     priority
                   />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '16px',
-                    left: '16px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                    backdropFilter: 'blur(4px)',
-                    borderRadius: '9999px'
-                  }}>
-                    <span style={{
-                      fontSize: '12px',
-                      fontWeight: 500,
-                      color: 'white'
-                    }}>Antes</span>
+                  <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full backdrop-blur-md"
+                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+                    <span className="text-xs font-medium text-white">Before</span>
                   </div>
                 </div>
                 
-                {/* Después */}
-                <div style={{ position: 'relative', width: '50%', height: '100%' }}>
+                {/* After */}
+                <div className="relative w-1/2 h-full">
                   <Image
                     src="/images/hero/chair-after.png"
-                    alt="Silla restaurada profesionalmente"
+                    alt="Professionally restored chair"
                     fill
                     style={{ objectFit: 'cover' }}
                     priority
                   />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '16px',
-                    right: '16px',
-                    padding: '6px 12px',
-                    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                    backdropFilter: 'blur(4px)',
-                    borderRadius: '9999px'
-                  }}>
-                    <span style={{
-                      fontSize: '12px',
-                      fontWeight: 500,
-                      color: 'white'
-                    }}>Después</span>
+                  <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full backdrop-blur-md"
+                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+                    <span className="text-xs font-medium text-white">After</span>
                   </div>
                 </div>
                 
-                {/* Línea divisoria */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  bottom: 0,
-                  left: '50%',
-                  width: '2px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                  transform: 'translateX(-50%)'
-                }} />
+                {/* Divider Line */}
+                <div className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2"
+                     style={{ backgroundColor: 'var(--color-primary)' }} />
                 
-                {/* Icono central */}
-                <div style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  width: '48px',
-                  height: '48px',
-                  backgroundColor: 'white',
-                  borderRadius: '9999px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3)',
-                  border: '4px solid rgba(255, 255, 255, 0.2)'
-                }}>
-                  <svg 
-                    style={{ width: '24px', height: '24px', color: '#2563eb' }}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
+                {/* Center Icon */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4"
+                     style={{ 
+                       backgroundColor: 'var(--color-surface)',
+                       borderColor: 'var(--color-primary)'
+                     }}>
+                  <svg className="w-6 h-6" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-      `}</style>
     </section>
   );
 }
