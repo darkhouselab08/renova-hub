@@ -4,6 +4,84 @@
 
 ---
 
+## 🧠 CONTEXTO ACTUALIZADO DEL PROYECTO (Feb 9, 2026)
+
+### **Perfil de Jorge Franco**
+
+- Estudiante de Desarrollo Web Full-Stack + Administración Pública
+- Idioma preferido: Español
+- Estilo de trabajo: Claridad mental > Velocidad
+- Necesita entender el "por qué" antes del "cómo"
+- Ver perfil completo: `jorge_profile.md`
+
+### **Stack Tecnológico Decidido**
+
+**Frontend:**
+
+- Next.js 15 + TypeScript + Tailwind CSS
+- Hosting: Vercel (GRATIS)
+- Dominio: Namecheap (~$12/año)
+
+**Backend (Fase 2):**
+
+- Supabase (database, auth)
+- Google Cloud (Gemini API, Workspace)
+- n8n (workflow automation)
+
+**Automatización (Fase 2-3):**
+
+- Google Stitch MCP (conecta IA con Workspace)
+- GitHub MCP (ya activo)
+
+**Razón de estas decisiones:** Ver `technology_stack_decision.md`
+
+### **Estado Actual del Proyecto**
+
+**Completado:**
+
+- ✅ Hero Section
+- ✅ Gallery Section (9 proyectos con filtros)
+- ✅ About Section
+- ✅ Process Section
+- ✅ Testimonials
+- ✅ Contact Form
+- ✅ Footer
+
+**Pendiente:**
+
+- [ ] Arreglar botones de navegación
+- [ ] Generar fotos before/after coherentes
+- [ ] Deploy a Vercel
+- [ ] Comprar dominio
+
+**Deuda Técnica:**
+
+- Fotos AI-generated (reemplazar con reales)
+- Email integration (Fase 2)
+
+### **Decisiones Importantes Tomadas**
+
+1. **Vercel vs Alternativas:**
+   - Elegido por: Gratis, fácil, optimizado para Next.js
+   - Rechazado: WordPress (lento), AWS (complejo), Shopify (caro)
+
+2. **Google Stitch MCP:**
+   - SÍ es funcional para automatización
+   - Implementar en Fase 2 (después de MVP)
+   - Ahorra 10+ horas/semana
+
+3. **n8n como "Sistema Nervioso":**
+   - Conecta todos los servicios
+   - Automatiza workflows
+   - Self-hosted (gratis) o Cloud ($20/mes)
+
+4. **Filosofía del Proyecto:**
+   - "Simple por Fuera, Sofisticado por Dentro"
+   - MVP rápido, escalar después
+   - Decisiones informadas > Velocidad ciega
+
+---
+
 ## 📝 Cómo Usar Este Archivo
 
 1. **Pega aquí cualquier información** que encuentres en otros chats, investigaciones, o recursos
@@ -111,7 +189,7 @@ Notas clave:
 
 ---
 
-**Última actualización**: 2026-02-05
+**Última actualización**: 2026-02-09
 
 ---
 
@@ -123,6 +201,8 @@ Cuando Jorge actualice este archivo:
 2. Aplica las mejores prácticas mencionadas aquí
 3. Pregunta si algo no está claro
 4. Sugiere cómo implementar las ideas en Renova-Hub
+5. **SIEMPRE consulta `jorge_profile.md` para entender su estilo de trabajo**
+6. **SIEMPRE consulta `technology_stack_decision.md` para decisiones técnicas**
 ```
 
 Actualizacion: 2026-02-08
