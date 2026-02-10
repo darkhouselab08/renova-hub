@@ -162,7 +162,360 @@ Arquitectura de 3 capas:
 - Next.js Docs
 - Tailwind CSS Docs
 - Google Cloud Vertex AI
-- Supabase Docs
+- Supabase Documentation
+
+---
+
+## 🎓 Pensil Académico - Recomendaciones de Aprendizaje
+
+> **Objetivo:** Dominar habilidades clave para tomar mejores decisiones técnicas y de negocio sin perder el norte del proyecto.
+
+### 1️⃣ **Validación de Producto (CRÍTICO - Próximas 2 semanas)**
+
+**Por qué es importante:**
+
+- Evita construir features que nadie quiere
+- Ahorra 3+ meses de desarrollo desperdiciado
+- Confirma que el problema es real antes de invertir
+
+**Qué aprender:**
+
+#### a) Lean Startup Methodology
+
+- **Recurso:** "The Lean Startup" de Eric Ries (libro/audible)
+- **Tiempo:** 1 semana de lectura
+- **Aplicación inmediata:** Fase 1.5 (validación con clientes)
+- **Conceptos clave:**
+  - Build-Measure-Learn loop
+  - Minimum Viable Product (MVP)
+  - Validated learning
+  - Pivot vs Persevere
+
+#### b) Customer Development
+
+- **Recurso:** "The Mom Test" de Rob Fitzpatrick (libro corto, 2-3 horas)
+- **Tiempo:** 1 día
+- **Aplicación inmediata:** Entrevistas con 10 clientes
+- **Conceptos clave:**
+  - Cómo hacer preguntas que revelan verdad
+  - Evitar preguntas que llevan a respuestas falsas
+  - Identificar pain points reales vs imaginados
+
+#### c) Fake Door Testing
+
+- **Recurso:** Blog de Y Combinator - "How to Validate Your Startup Idea"
+- **URL:** https://www.ycombinator.com/library
+- **Tiempo:** 2 horas
+- **Aplicación inmediata:** Botón "Try 3D Simulation" en Renova-Hub
+
+**Acción concreta esta semana:**
+
+```
+1. Leer "The Mom Test" (2-3 horas)
+2. Escribir 5 preguntas para clientes
+3. Contactar 3 clientes actuales de Water Color Painting
+4. Implementar "fake door" en Hero section
+```
+
+---
+
+### 2️⃣ **Toma de Decisiones Técnicas (Próximo mes)**
+
+**Por qué es importante:**
+
+- Evita sobre-ingeniería (construir más de lo necesario)
+- Ayuda a elegir entre Genie 3, Three.js, renders estáticos
+- Balancea calidad técnica con velocidad de lanzamiento
+
+**Qué aprender:**
+
+#### a) Technical Decision Making
+
+- **Recurso:** "Staff Engineer" de Will Larson
+- **Tiempo:** 2 semanas de lectura
+- **Conceptos clave:**
+  - Trade-offs analysis (velocidad vs calidad)
+  - When to use cutting-edge vs proven tech
+  - Technical debt management
+
+#### b) Architecture Decision Records (ADRs)
+
+- **Recurso:** Blog de ThoughtWorks - "Documenting Architecture Decisions"
+- **URL:** https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
+- **Tiempo:** 1 hora
+- **Aplicación inmediata:** Documentar decisión Genie 3 vs Three.js
+
+**Template ADR para Renova-Hub:**
+
+```markdown
+# ADR 001: Usar Genie 3 para Simulación 3D
+
+## Contexto
+
+Necesitamos simulación 3D interactiva para diferenciarnos.
+
+## Opciones Consideradas
+
+1. Genie 3 (Google)
+2. Three.js + renders estáticos
+3. Blender + pre-renders
+
+## Decisión
+
+Usar Genie 3 SI obtenemos acceso en 4 semanas.
+Caso contrario, Three.js como Plan B.
+
+## Consecuencias
+
+- Positivas: Diferenciación única, física real
+- Negativas: Dependencia de Google, costo desconocido
+- Mitigación: Plan B documentado
+```
+
+---
+
+### 3️⃣ **Business Fundamentals para Desarrolladores (Próximos 2 meses)**
+
+**Por qué es importante:**
+
+- Entiendes si tu solución técnica tiene sentido comercial
+- Puedes calcular ROI de features antes de construirlas
+- Sabes cuándo pivotar vs perseverar
+
+**Qué aprender:**
+
+#### a) Unit Economics
+
+- **Recurso:** "Unit Economics 101" (YouTube - Y Combinator)
+- **Tiempo:** 30 minutos
+- **Conceptos clave:**
+  - CAC (Customer Acquisition Cost)
+  - LTV (Lifetime Value)
+  - LTV/CAC ratio (debe ser >3)
+  - Churn rate
+
+**Aplicación a Renova-Hub:**
+
+```
+CAC: ¿Cuánto cuesta conseguir 1 cliente premium?
+- Google Ads: $50-100 por conversión
+- Referidos: $0-20
+
+LTV: ¿Cuánto vale un cliente en su vida?
+- $49/mes × 10 meses retención = $490
+
+LTV/CAC = $490 / $75 = 6.5x ✅ (Excelente)
+```
+
+#### b) Pricing Strategy
+
+- **Recurso:** "Don't Just Roll the Dice" de Neil Davidson (gratis)
+- **URL:** https://neildavidson.com/downloads/dont-just-roll-the-dice-2.0.pdf
+- **Tiempo:** 2 horas
+- **Conceptos clave:**
+  - Value-based pricing vs cost-based
+  - Tiered pricing psychology
+  - Anchoring effects
+
+**Aplicación inmediata:**
+
+- Validar si $49/mes es correcto para Premium
+- Diseñar tiers que maximicen conversión
+
+---
+
+### 4️⃣ **Visualización y Comunicación (Ahora - Crítico)**
+
+**Por qué es importante:**
+
+- Tu creatividad se limita con solo datos/texto
+- Necesitas comunicar visión a clientes/inversores
+- Mockups visuales venden mejor que código
+
+**Qué aprender:**
+
+#### a) Figma Básico
+
+- **Recurso:** Figma YouTube Channel - "Figma for Beginners"
+- **Tiempo:** 2 horas (tutorial completo)
+- **Aplicación inmediata:** Crear mockups de Renova-Hub
+- **Habilidades:**
+  - Frames y layouts
+  - Components y variants
+  - Auto-layout
+  - Prototyping básico
+
+**Proyecto práctico:**
+
+```
+1. Recrear Hero Section en Figma
+2. Diseñar interfaz de simulación 3D
+3. Exportar como PNG para presentaciones
+```
+
+#### b) MCPs para Visualización
+
+- **Investigar:** MCPs que se integren con Antigravity
+- **Opciones potenciales:**
+  - Screenshot MCP (capturas automáticas)
+  - Figma MCP (si existe)
+  - Browser automation para mockups
+
+**Acción esta semana:**
+
+```
+1. Buscar en MCP registry: https://github.com/modelcontextprotocol
+2. Probar MCPs de visualización disponibles
+3. Documentar cuál funciona mejor
+```
+
+---
+
+### 5️⃣ **Mantener el Norte del Proyecto (Siempre)**
+
+**Por qué es importante:**
+
+- Fácil perderse en detalles técnicos
+- Shiny object syndrome (perseguir nuevas tecnologías)
+- Olvidar el objetivo: generar ingresos, no solo código bonito
+
+**Framework de Decisión:**
+
+#### Antes de Empezar Cualquier Feature:
+
+```
+1. ¿Esto me acerca a mi primer cliente de pago? (Sí/No)
+2. ¿Puedo validar esto sin construirlo? (Sí/No)
+3. ¿Cuánto tiempo tomará? (Horas/Días/Semanas)
+4. ¿Qué pasa si NO lo hago? (Crítico/Importante/Nice-to-have)
+
+Si respuestas son: No, No, Semanas, Nice-to-have → NO HACERLO
+```
+
+#### Revisión Semanal (Domingos):
+
+```markdown
+# Revisión Semanal - [Fecha]
+
+## ✅ Logros
+
+- ¿Qué construí?
+- ¿Qué aprendí?
+
+## 🎯 Progreso hacia Meta
+
+- Meta: 10 clientes premium en 6 meses
+- Progreso: [X] clientes actuales
+- ¿Estoy más cerca? (Sí/No)
+
+## 🚨 Señales de Alerta
+
+- ¿Pasé >3 días sin hablar con clientes?
+- ¿Construí algo que nadie pidió?
+- ¿Me distraje con tecnología nueva?
+
+## 📋 Próxima Semana
+
+- 1 acción de validación
+- 1 acción de desarrollo
+- 1 acción de aprendizaje
+```
+
+---
+
+### 📅 Plan de Aprendizaje - Próximos 3 Meses
+
+#### Mes 1 (Febrero 2026)
+
+**Prioridad: Validación**
+
+- ✅ Semana 1: Leer "The Mom Test"
+- ✅ Semana 2: Entrevistar 10 clientes
+- ✅ Semana 3: Implementar "fake door"
+- ✅ Semana 4: Analizar resultados y decidir
+
+**Tiempo de aprendizaje:** 5 horas/semana
+**Tiempo de ejecución:** 10 horas/semana
+
+#### Mes 2 (Marzo 2026)
+
+**Prioridad: Decisiones Técnicas**
+
+- Semana 1-2: Leer "Staff Engineer"
+- Semana 3: Documentar ADRs
+- Semana 4: Aprender Figma básico
+
+**Tiempo de aprendizaje:** 8 horas/semana
+**Tiempo de ejecución:** 15 horas/semana (si Fase 2 aprobada)
+
+#### Mes 3 (Abril 2026)
+
+**Prioridad: Business Fundamentals**
+
+- Semana 1: Unit Economics
+- Semana 2: Pricing Strategy
+- Semana 3-4: Aplicar a Renova-Hub
+
+**Tiempo de aprendizaje:** 5 horas/semana
+**Tiempo de ejecución:** 20 horas/semana (desarrollo activo)
+
+---
+
+### 🎯 Métricas de Éxito del Aprendizaje
+
+#### Validación
+
+- ✅ Hablé con 10+ clientes potenciales
+- ✅ Tengo 5+ emails de interesados en beta
+- ✅ Confirmé que pagarían $49/mes
+
+#### Decisiones Técnicas
+
+- ✅ Documenté 3+ ADRs importantes
+- ✅ Elegí Genie 3 o Plan B con justificación clara
+- ✅ Evité sobre-ingeniería en 2+ ocasiones
+
+#### Business
+
+- ✅ Calculé LTV/CAC de Renova-Hub
+- ✅ Ajusté pricing basado en feedback
+- ✅ Sé cuándo pivotar vs perseverar
+
+#### Visualización
+
+- ✅ Creé 5+ mockups en Figma
+- ✅ Encontré MCP de visualización útil
+- ✅ Puedo comunicar visión sin solo texto
+
+---
+
+### 🚨 Señales de que Estás Perdiendo el Norte
+
+1. **Llevas >2 semanas sin hablar con clientes**
+   - Solución: Parar desarrollo, hacer 5 entrevistas
+
+2. **Construiste 3+ features que nadie pidió**
+   - Solución: Revisar backlog, eliminar nice-to-haves
+
+3. **Cambiaste de tecnología >2 veces en 1 mes**
+   - Solución: Documentar ADR, comprometerte 4 semanas
+
+4. **No sabes cuánto dinero generaste este mes**
+   - Solución: Crear dashboard simple de métricas
+
+5. **Estás aprendiendo tecnología no relacionada al proyecto**
+   - Solución: Pausar, volver a objetivos principales
+
+---
+
+### 💡 Regla de Oro
+
+**"Si no puedo explicar cómo esto me acerca a mi primer cliente de pago, NO lo hago."**
+
+---
+
+**Última actualización:** 2026-02-09  
+**Próxima revisión:** 2026-02-16 (semanal)
 
 ---
 
