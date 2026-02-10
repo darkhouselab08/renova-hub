@@ -1,7 +1,7 @@
 # 🏗️ Arquitectura Técnica - Renova-Hub
 
-> **Versión**: 1.0.0  
-> **Última actualización**: 2026-02-05  
+> **Versión**: 2.0.0  
+> **Última actualización**: 2026-02-10  
 > **Autor**: Jorge Franco
 
 ---
@@ -21,18 +21,36 @@
 
 ## 🎯 Visión General
 
-**Renova-Hub** es una plataforma web profesional para restauración de muebles con capacidades de e-commerce. El proyecto está diseñado para ser:
+**Renova-Hub** es una plataforma web premium para restauración de muebles con **simulación 3D interactiva** (Genie 3). El proyecto está diseñado para ser:
 
 - **Escalable**: Arquitectura modular que crece con el negocio
 - **Mantenible**: Código limpio y bien documentado
 - **Performante**: Optimizado para SEO y velocidad
+- **Innovador**: Primera plataforma de restauración con simulación física real
 - **Profesional**: Diseño premium y experiencia de usuario excepcional
 
 ### Objetivos del Proyecto
 
-1. **Fase 1 - La Fachada**: Landing page impactante con galería de transformaciones
-2. **Fase 2 - El Cerebro**: Dashboard administrativo y sistema de cotizaciones
-3. **Fase 3 - El Motor**: E-commerce completo con pagos integrados
+1. **Fase 1 - Preparación Arquitectónica** ✅ (Completada 2026-02-09)
+   - Componentes preparados para Genie 3
+   - Tipos TypeScript para simulaciones
+   - WorldViewport component implementado
+   - Captura de coordenadas de interacción
+
+2. **Fase 1.5 - Validación con Clientes** (En planificación)
+   - Deploy a Vercel
+   - "Fake door" testing
+   - Validación de propuesta de valor
+
+3. **Fase 2 - Backend + API** (Pendiente acceso Genie 3)
+   - Backend Python/FastAPI
+   - Integración Google Cloud Vertex AI
+   - Endpoint `/api/genie/interact`
+
+4. **Fase 3 - Integración Completa**
+   - Renderizado de streams 3D
+   - Dashboard premium
+   - E-commerce con Stripe
 
 ---
 
@@ -68,14 +86,56 @@
 - ✅ Tree-shaking automático (CSS mínimo)
 - ✅ Responsive design simplificado
 
-### Futuras Integraciones
+### Integraciones Actuales
 
-- **Animaciones**: Framer Motion
+- **Animaciones**: Framer Motion (planificado)
+- **Temas**: next-themes (dark/light mode)
+- **Contextos**: React Context API
+
+### Integraciones Futuras (Fase 2+)
+
+#### Backend & IA
+
+- **Backend**: Python/FastAPI (para Genie 3)
+- **IA**: Google Cloud Vertex AI + Genie 3
+- **Node Backend**: Next.js API Routes (lógica de negocio)
+
+#### Base de Datos & Auth
+
 - **Base de datos**: Supabase (PostgreSQL)
-- **Autenticación**: NextAuth.js
-- **Pagos**: Stripe
+- **Autenticación**: NextAuth.js / Supabase Auth
 - **Storage**: Supabase Storage / Cloudinary
+
+#### Pagos & Comunicación
+
+- **Pagos**: Stripe
 - **Email**: Resend / SendGrid
+- **Automatización**: n8n (workflows)
+
+### Arquitectura "Cerebro, Nervios y Memoria"
+
+```
+┌─────────────────────────────────────────────────────┐
+│  CEREBRO (IA)                                       │
+│  - Gemini (chat, análisis)                          │
+│  - Genie 3 (simulación 3D)                          │
+│  - Decisiones inteligentes                          │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│  NERVIOS (Automatización)                           │
+│  - n8n (workflows)                                  │
+│  - Conecta servicios                                │
+│  - Triggers y acciones                              │
+└─────────────────────────────────────────────────────┘
+                        ↓
+┌─────────────────────────────────────────────────────┐
+│  MEMORIA (Datos)                                    │
+│  - Supabase (PostgreSQL)                            │
+│  - Row Level Security (RLS)                         │
+│  - Contexto persistente                             │
+└─────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -83,23 +143,31 @@
 
 ```
 renova-hub/
-├── .agent/                    # Workflows y automatización
-│   └── workflows/            # Procesos documentados
-│       ├── deploy.md
-│       ├── testing.md
-│       └── component-creation.md
+├── .agent/                    # Workflows y documentación de proyecto
+│   ├── workflows/            # Procesos documentados
+│   │   ├── deploy.md
+│   │   ├── testing.md
+│   │   └── component-creation.md
+│   ├── CONTEXT.md            # Contexto del proyecto
+│   ├── README.md             # Guía de .agent
+│   ├── jorge_profile.md      # Perfil del desarrollador
+│   ├── business_viability_genie3.md  # Análisis de negocio
+│   ├── mcp_visualization_research.md # Investigación MCPs
+│   └── visual_generation_prompts.md  # Prompts para mockups
 │
 ├── docs/                      # Documentación técnica
+│   ├── INDEX.md              # Índice de documentación
 │   ├── COMPONENTS.md         # Guía de componentes
 │   ├── STYLING.md            # Sistema de diseño
 │   ├── API.md                # Documentación de APIs
-│   └── DEPLOYMENT.md         # Guía de despliegue
+│   └── BUSINESS_PLAN.md      # Plan de negocio
 │
 ├── public/                    # Assets estáticos
 │   ├── images/               # Imágenes optimizadas
 │   │   ├── hero/
 │   │   ├── gallery/
-│   │   └── products/
+│   │   ├── products/
+│   │   └── mockups/          # Mockups visuales (Fase 1.5)
 │   └── fonts/                # Fuentes personalizadas
 │
 ├── src/
@@ -107,35 +175,40 @@ renova-hub/
 │   │   ├── (marketing)/     # Grupo de rutas públicas
 │   │   │   ├── page.tsx     # Landing page
 │   │   │   └── layout.tsx
-│   │   ├── (dashboard)/     # Grupo de rutas admin
+│   │   ├── (dashboard)/     # Grupo de rutas admin (futuro)
 │   │   ├── api/             # API Routes
+│   │   │   └── genie/       # Endpoints Genie 3 (Fase 2)
 │   │   ├── globals.css
 │   │   └── layout.tsx       # Root layout
 │   │
 │   ├── components/
 │   │   ├── layout/          # Componentes de estructura
 │   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── Navbar.tsx
+│   │   │   └── Footer.tsx
 │   │   │
 │   │   ├── sections/        # Secciones de página
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Gallery.tsx
-│   │   │   ├── BeforeAfter.tsx
-│   │   │   └── Testimonials.tsx
+│   │   │   ├── Hero.tsx              # ✅ Con WorldViewport
+│   │   │   ├── Gallery.tsx           # ✅ Con WorldViewport
+│   │   │   ├── About.tsx
+│   │   │   ├── Process.tsx
+│   │   │   ├── Testimonials.tsx
+│   │   │   └── ContactForm.tsx
 │   │   │
 │   │   └── ui/              # Componentes reutilizables
-│   │       ├── Button.tsx
-│   │       ├── Card.tsx
-│   │       ├── Input.tsx
-│   │       └── Modal.tsx
+│   │       ├── ThemeSwitcher.tsx
+│   │       └── WorldViewport.tsx     # ✅ Wrapper para Genie 3
+│   │
+│   ├── contexts/            # React Contexts
+│   │   └── ThemeContext.tsx
 │   │
 │   ├── lib/                 # Utilidades y helpers
-│   │   ├── utils.ts         # Funciones helper
-│   │   ├── constants.ts     # Constantes globales
-│   │   └── types.ts         # TypeScript types
+│   │   ├── projects.ts      # Data de proyectos
+│   │   └── utils.ts         # Funciones helper
 │   │
-│   ├── hooks/               # Custom React hooks
+│   ├── types/               # ✅ TypeScript types (Fase 1)
+│   │   └── simulation.ts    # Tipos para Genie 3
+│   │
+│   ├── hooks/               # Custom React hooks (futuro)
 │   │   ├── useMediaQuery.ts
 │   │   └── useScrollPosition.ts
 │   │
@@ -152,7 +225,27 @@ renova-hub/
 1. **Separación por función**: `layout/`, `sections/`, `ui/`
 2. **Colocation**: Archivos relacionados juntos
 3. **Route Groups**: Organización lógica de rutas con `(nombre)`
-4. **Barrel Exports**: `index.ts` para exportaciones limpias
+4. **Barrel Exports**: `index.ts` para exportaciones limpias (futuro)
+5. **Documentación centralizada**: `.agent/` para contexto de proyecto
+
+### Cambios Recientes (Fase 1)
+
+#### Nuevos Directorios
+
+- ✅ `src/types/` - Tipos TypeScript para simulaciones
+- ✅ `.agent/` - Documentación y workflows del proyecto
+
+#### Nuevos Archivos
+
+- ✅ `src/types/simulation.ts` - Tipos para Genie 3
+- ✅ `src/components/ui/WorldViewport.tsx` - Wrapper para 3D
+- ✅ `.agent/business_viability_genie3.md` - Análisis de negocio
+- ✅ `.agent/jorge_profile.md` - Perfil y plan de aprendizaje
+
+#### Archivos Modificados
+
+- ✅ `src/components/sections/Hero.tsx` - Usa WorldViewport
+- ✅ `src/components/sections/Gallery.tsx` - Usa WorldViewport
 
 ---
 
@@ -222,8 +315,6 @@ Pages      → app/page.tsx
 
 - `Header.tsx` - Navegación principal
 - `Footer.tsx` - Pie de página con links
-- `Navbar.tsx` - Menú de navegación
-- `Sidebar.tsx` - Panel lateral (dashboard)
 
 **Características**:
 
@@ -235,27 +326,26 @@ Pages      → app/page.tsx
 
 **Propósito**: Bloques de contenido de página completa
 
-- `Hero.tsx` - Sección principal con CTA
-- `Gallery.tsx` - Galería de transformaciones
-- `BeforeAfter.tsx` - Comparador de imágenes
+- `Hero.tsx` - Sección principal con CTA ✅ **Usa WorldViewport**
+- `Gallery.tsx` - Galería de transformaciones ✅ **Usa WorldViewport**
+- `About.tsx` - Información de la empresa
+- `Process.tsx` - Proceso de restauración
 - `Testimonials.tsx` - Reseñas de clientes
-- `Contact.tsx` - Formulario de contacto
+- `ContactForm.tsx` - Formulario de contacto
 
 **Características**:
 
 - Full-width sections
 - Spacing consistente (py-16, py-24)
 - Background variants
+- **Preparados para simulación 3D** (Hero, Gallery)
 
 #### 3. UI Components (`components/ui/`)
 
 **Propósito**: Componentes reutilizables y genéricos
 
-- `Button.tsx` - Botones con variantes
-- `Card.tsx` - Tarjetas de contenido
-- `Input.tsx` - Campos de formulario
-- `Modal.tsx` - Diálogos y modales
-- `Badge.tsx` - Etiquetas y tags
+- `ThemeSwitcher.tsx` - Cambio de tema dark/light
+- `WorldViewport.tsx` - **Wrapper para Genie 3** ✅ **Nuevo en Fase 1**
 
 **Características**:
 
@@ -263,29 +353,104 @@ Pages      → app/page.tsx
 - Variantes con Tailwind
 - Accesibilidad (a11y)
 
+##### WorldViewport Component (Fase 1)
+
+**Propósito**: Wrapper que abstrae la complejidad de manejar imágenes estáticas y futuros streams 3D de Genie 3.
+
+**Características**:
+
+```typescript
+interface WorldViewportProps {
+  beforeImage: string;
+  afterImage: string;
+  alt: string;
+  streamState?: WorldStreamState; // Fase 2
+  onPointerInteraction?: (coords: PointerCoordinates) => void;
+  showLabels?: boolean;
+}
+```
+
+**Funcionalidad actual**:
+
+- ✅ Renderiza imágenes before/after
+- ✅ Captura coordenadas de click/hover
+- ✅ Muestra badge "Click to Interact"
+- ✅ Preparado para streams de Genie 3
+
+**Funcionalidad futura (Fase 2)**:
+
+- Renderizar streams de video 720p @ 24fps
+- Manejar estados de carga
+- Fallback automático a imágenes
+- Integración con backend Python/FastAPI
+
 ---
 
 ## 🔄 Flujo de Datos
 
-### Fase 1: Estático (Actual)
+### Fase 1: Estático (Actual) ✅
 
 ```
 Componentes → Props → Render
 ```
 
-### Fase 2: Con Backend
+**Ejemplo**:
+
+```typescript
+// Gallery.tsx
+const projects = getProjects(); // Data estática
+<WorldViewport beforeImage={project.before} afterImage={project.after} />
+```
+
+### Fase 1.5: Validación (En planificación)
 
 ```
-API Route → Supabase → Server Component → Client Component
+Usuario → "Fake Door" → Analytics → Decisión
 ```
+
+**Objetivo**: Validar interés antes de construir backend.
+
+### Fase 2: Con Genie 3 (Futuro)
+
+```
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────┐
+│   Cliente    │────▶│ WorldViewport│────▶│   Backend    │────▶│ Genie 3  │
+│  (Browser)   │     │  Component   │     │ Python/      │     │   API    │
+│              │     │              │     │ FastAPI      │     │          │
+└──────────────┘     └──────────────┘     └──────────────┘     └──────────┘
+      ▲                     │                     │                  │
+      │                     │                     │                  │
+      │              Coordenadas            Simulación          Stream
+      │              X, Y, Action           Request             720p@24fps
+      │                     │                     │                  │
+      └─────────────────────┴─────────────────────┴──────────────────┘
+                        Video Stream Response
+```
+
+**Flujo detallado**:
+
+1. Usuario hace click en WorldViewport
+2. Component captura coordenadas (X, Y)
+3. Frontend envía request a `/api/genie/interact`
+4. Backend Python llama Genie 3 API
+5. Genie 3 genera stream de video
+6. Backend retorna stream URL
+7. WorldViewport renderiza video
 
 ### Fase 3: Con Estado Global
 
 ```
-Zustand Store ← API ← Supabase
-     ↓
-Client Components
+Zustand Store ← API ← Backend Python ← Genie 3
+     ↓                      ↓
+Client Components    Supabase (persistencia)
 ```
+
+**Gestión de estado**:
+
+- Simulaciones activas
+- Historial de interacciones
+- Preferencias de usuario
+- Cache de streams
 
 ---
 
@@ -417,26 +582,93 @@ hotfix/critical-bug-name
 
 ## 🚀 Próximos Pasos
 
-### Inmediatos
+### Fase 1 - Completada ✅ (2026-02-09)
 
 1. ✅ Crear estructura de documentación
 2. ✅ Definir workflows de automatización
-3. [ ] Implementar Hero Section
-4. [ ] Crear sistema de diseño en `docs/STYLING.md`
+3. ✅ Implementar Hero Section con WorldViewport
+4. ✅ Implementar Gallery con WorldViewport
+5. ✅ Crear tipos TypeScript para simulaciones
+6. ✅ Documentar arquitectura Genie 3
 
-### Corto Plazo
+### Fase 1.5 - Validación (Próximas 2-4 semanas)
 
-1. [ ] Configurar ESLint y Prettier
-2. [ ] Implementar testing con Vitest
-3. [ ] Configurar CI/CD con GitHub Actions
-4. [ ] Documentar API routes
+**Objetivo**: Validar propuesta de valor antes de construir backend
 
-### Largo Plazo
+1. [ ] Deploy a Vercel
+   - Configurar dominio
+   - Setup Google Analytics
+2. [ ] Implementar "Fake Door"
+   - Modal de simulación 3D
+   - Captura de emails interesados
+   - Tracking de interacciones
 
-1. [ ] Integrar Supabase
-2. [ ] Implementar autenticación
-3. [ ] Configurar Stripe
-4. [ ] Deploy a Vercel
+3. [ ] Validación con Clientes
+   - Contactar 10 clientes potenciales
+   - Entrevistas (usar "The Mom Test")
+   - Analizar feedback
+
+4. [ ] Decisión Go/No-Go
+   - ✅ 7+ clientes interesados → Proceder a Fase 2
+   - ❌ <5 clientes interesados → Pivotar
+
+### Fase 2 - Backend + API (3 meses, si Fase 1.5 exitosa)
+
+**Prerequisito**: Acceso a Genie 3 API aprobado
+
+1. [ ] Backend Python/FastAPI
+   - Setup Google Cloud Vertex AI
+   - Implementar `/api/genie/interact`
+   - Manejo de streams
+
+2. [ ] Integración Frontend
+   - Actualizar WorldViewport para streams
+   - Estados de carga/error
+   - Fallback a imágenes
+
+3. [ ] Beta Testing
+   - 3-5 clientes beta
+   - Recolectar feedback
+   - Iterar UX
+
+### Fase 3 - Producción (3 meses)
+
+1. [ ] Pricing Tiers UI
+   - Landing page actualizada
+   - Dashboard premium
+   - Sistema de suscripciones
+
+2. [ ] Integración Supabase
+   - Autenticación
+   - Base de datos
+   - Row Level Security
+
+3. [ ] Integración Stripe
+   - Checkout flow
+   - Webhooks
+   - Manejo de suscripciones
+
+4. [ ] Marketing & Escala
+   - Content marketing
+   - SEO optimization
+   - Analytics dashboard
+
+### Largo Plazo (6-12 meses)
+
+1. [ ] Features Premium
+   - AR visualization (móvil)
+   - API para diseñadores
+   - White-label solution
+
+2. [ ] Optimizaciones
+   - Cache de simulaciones
+   - CDN para streams
+   - Performance monitoring
+
+3. [ ] Expansión
+   - Tier Enterprise
+   - Partnerships con tiendas
+   - Mercado internacional
 
 ---
 
