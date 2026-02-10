@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import WorldViewport from '@/components/ui/WorldViewport';
+import type { PointerCoordinates } from '@/types/simulation';
 
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
@@ -82,55 +84,31 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* Right Column: Before/After Image */}
+          {/* Right Column: Before/After using WorldViewport */}
           <div className="relative">
-            <div className="relative aspect-square max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl border"
+            <div className="relative max-w-lg mx-auto rounded-2xl overflow-hidden shadow-2xl border"
                  style={{ borderColor: 'var(--color-primary)' }}>
-              <div className="relative w-full h-full flex">
-                {/* Before */}
-                <div className="relative w-1/2 h-full">
-                  <Image
-                    src="/images/hero/chair-before.png"
-                    alt="Old chair before restoration"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    priority
-                  />
-                  <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full backdrop-blur-md"
-                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-                    <span className="text-xs font-medium text-white">Before</span>
-                  </div>
-                </div>
-                
-                {/* After */}
-                <div className="relative w-1/2 h-full">
-                  <Image
-                    src="/images/hero/chair-after.png"
-                    alt="Professionally restored chair"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    priority
-                  />
-                  <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full backdrop-blur-md"
-                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-                    <span className="text-xs font-medium text-white">After</span>
-                  </div>
-                </div>
-                
-                {/* Divider Line */}
-                <div className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2"
-                     style={{ backgroundColor: 'var(--color-primary)' }} />
-                
-                {/* Center Icon */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4"
-                     style={{ 
-                       backgroundColor: 'var(--color-surface)',
-                       borderColor: 'var(--color-primary)'
-                     }}>
-                  <svg className="w-6 h-6" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </div>
+              <WorldViewport
+                beforeImage="/images/hero/chair-before.png"
+                afterImage="/images/hero/chair-after.png"
+                alt="Professional furniture restoration"
+                onPointerInteraction={(coords) => {
+                  // Phase 1: Log coordinates for development
+                  console.log('[Hero] User interaction:', coords);
+                  // Phase 2: This will trigger backend call to Genie 3
+                }}
+                showLabels={true}
+              />
+              
+              {/* Center Icon Overlay */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 pointer-events-none"
+                   style={{ 
+                     backgroundColor: 'var(--color-surface)',
+                     borderColor: 'var(--color-primary)'
+                   }}>
+                <svg className="w-6 h-6" fill="none" stroke="var(--color-primary)" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </div>
             </div>
           </div>

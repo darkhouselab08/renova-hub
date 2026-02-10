@@ -39,16 +39,22 @@
 
 **Completado:**
 
-- ✅ Hero Section
-- ✅ Gallery Section (9 proyectos con filtros)
+- ✅ Hero Section (con WorldViewport)
+- ✅ Gallery Section (9 proyectos con filtros + WorldViewport)
 - ✅ About Section
 - ✅ Process Section
 - ✅ Testimonials
 - ✅ Contact Form
 - ✅ Footer
+- ✅ **Fase 1 Genie 3:** Preparación arquitectónica completa
+  - ✅ Tipos TypeScript para simulaciones
+  - ✅ Componente WorldViewport wrapper
+  - ✅ Captura de coordenadas de interacción
+  - ✅ Refactorización Gallery y Hero
 
 **Pendiente:**
 
+- [ ] **Fase 2 Genie 3:** Backend Python/FastAPI + API integration
 - [ ] Arreglar botones de navegación
 - [ ] Generar fotos before/after coherentes
 - [ ] Deploy a Vercel
@@ -58,6 +64,7 @@
 
 - Fotos AI-generated (reemplazar con reales)
 - Email integration (Fase 2)
+- Solicitar acceso a Genie 3 API (Google Cloud)
 
 ### **Decisiones Importantes Tomadas**
 
@@ -79,6 +86,14 @@
    - "Simple por Fuera, Sofisticado por Dentro"
    - MVP rápido, escalar después
    - Decisiones informadas > Velocidad ciega
+
+5. **Nuevo Enfoque: Genie 3 (Modelos de Mundo)**
+   - **Visión:** Transformar de SaaS de restauración → Plataforma de simulación 3D
+   - **Diferenciador:** Clientes pueden "ver" restauraciones en 3D interactivo antes de comprar
+   - **Tecnología:** Google Genie 3 (streams de video 720p @ 24fps con física real)
+   - **Roadmap:** 3 fases (Preparación → Backend → Integración completa)
+   - **Ventaja competitiva:** Ningún competidor en restauración tiene simulación física real
+   - **Viabilidad:** Ver análisis de negocio en `business_viability_genie3.md`
 
 ---
 
@@ -247,3 +262,5 @@ analiza este repositorio y dime como lo podemos usar para el proyecto de renova 
 https://github.com/darkhouselab08/Usuario-Vertex-Partner-.git
 
 analiza este video: https://youtu.be/wksiOesibKg?si=FEy8dz6HEIuSeV1W
+
+https://notebooklm.google.com/notebook/2807bc4e-b946-4601-8677-b2c7cd39e270

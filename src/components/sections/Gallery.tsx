@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { sampleProjects } from '@/lib/projects';
+import WorldViewport from '@/components/ui/WorldViewport';
+import type { PointerCoordinates } from '@/types/simulation';
 
 type ThemeFilter = 'all' | 'classic' | 'dark' | 'hybrid';
 
@@ -82,45 +84,18 @@ export default function Gallery() {
               }}
               onClick={() => setSelectedProject(project.id)}
             >
-              {/* Before/After Split Image */}
-              <div className="relative aspect-square">
-                <div className="absolute inset-0 flex">
-                  {/* Before */}
-                  <div className="relative w-1/2 h-full overflow-hidden">
-                    <Image
-                      src={project.beforeImage}
-                      alt={`${project.title} before restoration`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="grayscale-[30%]"
-                    />
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full backdrop-blur-md"
-                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-                      <span className="text-xs font-medium text-white">Before</span>
-                    </div>
-                  </div>
-                  
-                  {/* After */}
-                  <div className="relative w-1/2 h-full overflow-hidden">
-                    <Image
-                      src={project.afterImage}
-                      alt={`${project.title} after restoration`}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                    />
-                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full backdrop-blur-md"
-                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-                      <span className="text-xs font-medium text-white">After</span>
-                    </div>
-                  </div>
-                  
-                  {/* Center Divider */}
-                  <div 
-                    className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2"
-                    style={{ backgroundColor: 'var(--color-primary)' }}
-                  />
-                </div>
-              </div>
+              {/* Before/After using WorldViewport (Genie 3 ready) */}
+              <WorldViewport
+                beforeImage={project.beforeImage}
+                afterImage={project.afterImage}
+                alt={project.title}
+                onPointerInteraction={(coords) => {
+                  // Phase 1: Just log coordinates
+                  // Phase 2: Send to backend for Genie 3 interaction
+                  console.log(`[Gallery] Interaction on ${project.id}:`, coords);
+                }}
+                showLabels={true}
+              />
 
               {/* Project Info */}
               <div className="p-6">
