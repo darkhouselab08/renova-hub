@@ -130,7 +130,7 @@ export default function Process() {
             Ready to transform your furniture?
           </p>
           <a
-            href="#quote"
+            href="#contact"
             className="inline-block px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
             style={{ 
               backgroundColor: 'var(--color-primary)',

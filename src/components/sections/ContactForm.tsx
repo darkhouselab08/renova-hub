@@ -96,7 +96,7 @@ export default function ContactForm() {
 
   return (
     <section 
-      id="quote" 
+      id="contact" 
       className="py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: 'var(--color-surface)' }}
     >
@@ -265,7 +265,7 @@ export default function ContactForm() {
               <option value="">Not sure yet...</option>
               <option value="classic">Classic Luxury (Whites, Creams)</option>
               <option value="dark">Dark Luxury (Navy, Charcoal, Green)</option>
-              <option value="hybrid">Heritage Innovation (Sage, Gray-Blue)</option>
+              <option value="hybrid">Heritage (Sage, Gray-Blue)</option>
             </select>
           </div>
 
