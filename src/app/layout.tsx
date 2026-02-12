@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
-
 export const metadata: Metadata = {
-  title: "Renova-Hub | Premium Furniture Restoration",
-  description: "We transform your furniture with professional restoration techniques. Project gallery, quotes, and online store.",
-  keywords: ["furniture restoration", "vintage furniture", "renovation", "chalky paint", "upholstery"],
+  title: "Renova-Hub | Restauración de Muebles Premium",
+  description: "Transformamos tus muebles con técnicas profesionales de restauración. Galería de proyectos, cotizaciones y tienda online.",
+  keywords: ["restauración de muebles", "muebles vintage", "renovación", "pintura chalky", "tapicería"],
 };
-
-import GoogleAnalytics from "@/lib/analytics";
 
 export default function RootLayout({
   children,
@@ -27,14 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased">
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+    <html lang="es">
+      <body className={`${inter.variable} antialiased font-sans bg-white text-[#4a3a24]`}>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
 }
-
