@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   keywords: ["furniture restoration", "vintage furniture", "renovation", "chalky paint", "upholstery"],
 };
 
+import GoogleAnalytics from "@/lib/analytics";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased">
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
         <ThemeProvider>
           {children}
         </ThemeProvider>
@@ -34,3 +37,4 @@ export default function RootLayout({
     </html>
   );
 }
+

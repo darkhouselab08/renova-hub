@@ -4,10 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import WorldViewport from '@/components/ui/WorldViewport';
+import SimulationModal from './SimulationModal';
 import type { PointerCoordinates } from '@/types/simulation';
 
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -38,8 +40,8 @@ export default function Hero() {
             {/* Title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
                 style={{ 
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-text)'
+                   fontFamily: 'var(--font-heading)',
+                   color: 'var(--color-text)'
                 }}>
               Transform Your Furniture with{' '}
               <span style={{ color: 'var(--color-primary)' }}>
@@ -93,9 +95,10 @@ export default function Hero() {
                 afterImage="/images/hero/chair-after.png"
                 alt="Professional furniture restoration"
                 onPointerInteraction={(coords) => {
-                  // Phase 1: Log coordinates for development
-                  console.log('[Hero] User interaction:', coords);
-                  // Phase 2: This will trigger backend call to Genie 3
+                  console.log('[Hero] User interaction recorded:', coords);
+                  if (coords.action === 'click') {
+                    setIsModalOpen(true);
+                  }
                 }}
                 showLabels={true}
               />
@@ -115,6 +118,12 @@ export default function Hero() {
           
         </div>
       </div>
+
+      <SimulationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }
+

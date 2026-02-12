@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { sampleProjects } from '@/lib/projects';
 import WorldViewport from '@/components/ui/WorldViewport';
+import SimulationModal from './SimulationModal';
 import type { PointerCoordinates } from '@/types/simulation';
 
 type ThemeFilter = 'all' | 'classic' | 'dark' | 'hybrid';
@@ -11,6 +12,7 @@ type ThemeFilter = 'all' | 'classic' | 'dark' | 'hybrid';
 export default function Gallery() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [themeFilter, setThemeFilter] = useState<ThemeFilter>('all');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const filteredProjects = themeFilter === 'all' 
     ? sampleProjects 
@@ -90,9 +92,10 @@ export default function Gallery() {
                 afterImage={project.afterImage}
                 alt={project.title}
                 onPointerInteraction={(coords) => {
-                  // Phase 1: Just log coordinates
-                  // Phase 2: Send to backend for Genie 3 interaction
                   console.log(`[Gallery] Interaction on ${project.id}:`, coords);
+                  if (coords.action === 'click') {
+                    setIsModalOpen(true);
+                  }
                 }}
                 showLabels={true}
               />
@@ -188,6 +191,12 @@ export default function Gallery() {
           </a>
         </div>
       </div>
+
+      <SimulationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }
+

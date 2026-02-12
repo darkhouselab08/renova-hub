@@ -1,261 +1,124 @@
-# Prompts para Generar Mockups Visuales - Renova-Hub
+# 🎨 Generación Visual Premium - Renova-Hub
 
-## 🎯 Para Nano Banana (Veo 3) o Midjourney
+Este documento contiene los prompts optimizados para generar las imágenes de "Antes y Después" que coincidan con la estética actual del proyecto.
 
-### 1. Hero Section - Before/After
+---
 
-```
-Modern luxury furniture restoration website hero section.
-Split-screen layout showing before/after comparison.
-Left side: worn, damaged vintage dresser in grayscale with "Before" label.
-Right side: beautifully restored dresser in deep navy blue (#020617)
-with gold hardware and "After" label.
-Dark premium background (#020617 slate).
-Elegant sans-serif typography (Inter font style).
-Prominent emerald green (#10b981) CTA button "Try 3D Simulation".
-Professional SaaS interface with glassmorphism effects.
-Clean, minimal, high-end design.
-Desktop view, 16:9 aspect ratio, 4K quality.
-```
+## 💎 Instrucciones para Crear el "Gem" en Gemini Pro
 
-**Variante para Midjourney:**
+Copia y pega esto en las "Instrucciones del Sistema" al crear un nuevo Gem llamado **"Renova Visual Designer"**:
 
-```
-modern furniture restoration website hero, dark luxury UI,
-split screen before after dresser comparison, navy blue restored furniture,
-gold hardware, emerald CTA button, professional SaaS design,
-glassmorphism, --ar 16:9 --v 6 --style raw
+```text
+Eres un experto en diseño de interiores y restauración de muebles de lujo, especializado en generar prompts para Imagen 3. Tu objetivo es crear imágenes de "Antes y Después" para el proyecto Renova-Hub.
+
+Sigue siempre estas directrices estéticas:
+1. PALETA: Lujo oscuro, maderas nobles, acabados en oro/latón, y colores profundos (Navy, Charcoal, Forest Green).
+2. ESTILO: Fotografía profesional de producto, iluminación dramática pero limpia, estilo "Architectural Digest".
+3. TEMAS: Debes conocer los 3 temas del proyecto:
+   - 'Heritage Innovation': Mix de lo antiguo con toques modernos.
+   - 'Classic Luxury': Opulencia tradicional, colores claros y dorados.
+   - 'Dark Luxury': Elegancia extrema con tonos negros, carbón y metales oscuros.
+
+Al generar prompts, asegúrate de que el "Antes" se vea desgastado pero con potencial, y el "Después" se vea como una pieza de colección en una mansión de los Hamptons.
 ```
 
 ---
 
-### 2. Simulación 3D - Interfaz Interactiva
+## 🚀 Prompts Optimizados (Imagen 3 / Gemini Pro)
 
-```
-Interactive 3D furniture simulation interface for premium SaaS.
-Center: rotating 3D model of vintage chair with realistic lighting and shadows.
-Left sidebar: 5 color swatches (Navy Blue, Soft White, Charcoal Gray,
-Sage Green, Natural Wood) arranged vertically.
-Right sidebar: simulation controls with icons for rotate, zoom, lighting.
-Bottom bar: real-time coordinate tracking display "X: 245, Y: 380".
-Dark premium UI background (#0f172a slate).
-Emerald green (#10b981) accent colors for active elements.
-"Simulation Active" badge in top right.
-Stream quality indicator "720p @ 24fps".
-Modern professional SaaS design with subtle glow effects.
-Desktop interface, 16:9 ratio, 4K quality.
+### 1. Tema: Heritage Innovation (El del Hero)
+
+_Ideal para la silla principal o el mueble del Hero._
+
+```text
+Professional split-screen comparison of a furniture restoration.
+Left side (Before): A worn-out, scratched mid-century modern wooden chair, dull finish, vintage fabric.
+Right side (After): The same chair restored with the 'Heritage Innovation' theme. Deep charcoal wood finish, premium textured emerald velvet upholstery, polished brass details.
+Background: High-end professional studio lighting, dark moody atmosphere.
+Style: 8k resolution, photorealistic, commercial photography, depth of field.
 ```
 
-**Variante para Midjourney:**
+### 2. Tema: Classic Luxury
 
-```
-3D furniture simulation interface, rotating chair model,
-color swatches sidebar, dark premium UI, emerald accents,
-simulation controls, coordinate tracking, professional SaaS,
-modern design, --ar 16:9 --v 6 --style raw
-```
+_Para la galería de transformaciones elegantes._
 
----
-
-### 3. Pricing Tiers - Comparación
-
-```
-Premium pricing comparison table for furniture restoration SaaS.
-Three columns side by side:
-"Basic" (free tier, light gray card),
-"Premium" (highlighted in emerald green #10b981, most popular badge),
-"Enterprise" (indigo accent #818cf8).
-Each card shows price, features list with checkmarks.
-Premium features: "Unlimited 3D Simulations", "5 Finish Options",
-"AR Visualization", "Priority Scheduling".
-Enterprise adds: "API Access", "White-label", "Dedicated Support".
-Dark elegant background (#020617).
-Clean modern typography.
-Subtle card shadows and borders.
-Professional B2B SaaS design aesthetic.
-Horizontal layout, 16:9 ratio, 4K quality.
+```text
+Professional before/after furniture restoration photo.
+Left side: A dated, yellowed French provincial nightstand with broken handles.
+Right side (After): Restored with 'Classic Luxury' theme. Antique white satin finish, hand-painted gold leaf accents, crystal knobs.
+Setting: Elegant bright master bedroom in the Hamptons.
+Style: Cinematic lighting, soft shadows, 8k, ultra-detailed textures.
 ```
 
-**Variante para Midjourney:**
+### 3. Tema: Dark Luxury
 
-```
-SaaS pricing tiers comparison, three cards layout,
-premium highlighted emerald green, dark background,
-feature checkmarks, professional design, modern UI,
-furniture restoration service, --ar 16:9 --v 6 --style raw
+_Para piezas de alto impacto y elegancia._
+
+```text
+Split view comparison of a large vintage executive desk.
+Left side: Water-damaged oak desk, peeling varnish, old stains.
+Right side (After): 'Dark Luxury' transformation. Matte black ebony stain, restored leather top insert with gold embossing, dark chrome hardware.
+Background: Private luxury library office, warm desk lamp lighting.
+Style: Sophisticated, premium quality, sharp focus, Imagen 3 style.
 ```
 
 ---
 
-### 4. Gallery con WorldViewport
+## 🎬 Nueva Sección: Video Cinemático (Veo 3.1)
 
-```
-Furniture restoration gallery grid layout.
-Bento-style grid with 3 columns.
-Each card shows split before/after furniture image
-(left: worn/damaged, right: restored).
-Cards include: vintage dresser (navy blue), nightstand (white cream),
-desk (sage green).
-Each card has "Click to Interact" badge on hover.
-Filter buttons at top: "All Styles", "Classic Luxury",
-"Dark Luxury", "Heritage Innovation".
-Dark premium background (#020617).
-Emerald green (#10b981) for active filters and CTAs.
-Professional gallery layout with subtle shadows.
-Desktop view, 16:9 ratio, 4K quality.
-```
+_Copia este prompt si vas a usar la opción de video en Gemini:_
 
-**Variante para Midjourney:**
-
-```
-furniture restoration gallery grid, bento layout,
-before after cards, filter buttons, dark premium UI,
-emerald accents, professional design, modern SaaS,
---ar 16:9 --v 6 --style raw
+```text
+Cinematic 5-second product showcase for Renova-Hub.
+A highly detailed 360-degree slow rotation of a restored lounge chair (Heritage Innovation theme).
+The chair features deep charcoal wood and shimmering emerald velvet upholstery.
+Dramatic studio lighting highlighting the texture of the fabric and the polished brass legs.
+High contrast, dark luxury background, 4k, 24fps, smooth camera movement.
 ```
 
 ---
 
-### 5. Mobile View - Hero Section
+## 🛠️ Cómo subir los archivos al proyecto (Workflow para Jorge)
 
-```
-Mobile responsive view of furniture restoration website hero.
-Vertical layout optimized for smartphone (9:16 ratio).
-Top: navigation menu icon and logo.
-Center: before/after furniture comparison stacked vertically.
-Bottom: large emerald green CTA button "Try 3D Simulation".
-Dark premium background (#020617).
-Touch-friendly interface with large tap targets.
-Modern mobile-first design.
-Clean typography optimized for small screens.
-Professional SaaS mobile UI.
-Portrait orientation, 9:16 ratio, 4K quality.
-```
+Una vez que descargues tus videos o imágenes de Gemini, sigue estos pasos para que yo pueda usarlos:
 
-**Variante para Midjourney:**
+### 1. Ubicación de los archivos
 
-```
-mobile furniture restoration app, vertical layout,
-before after stacked, dark premium UI, emerald CTA,
-touch-friendly, modern mobile design, --ar 9:16 --v 6 --style raw
-```
+Mueve los archivos desde tu carpeta de `Descargas` a estas carpetas del proyecto:
 
----
+- **Videos**: `/public/videos/hero/`
+- **Imágenes Hero**: `/public/images/hero/`
+- **Imágenes Galería**: `/public/images/gallery/`
 
-## 🎨 Para DALL-E 3 (ChatGPT Plus)
+### 2. Formatos recomendados
 
-Si usas ChatGPT Plus, estos prompts funcionan mejor:
+- **Video**: `.mp4`
+- **Imágenes**: `.png` (para sliders) o `.jpg` (para fondos)
 
-### Hero Section
+### 3. Notificación
 
-```
-Create a modern, luxury furniture restoration website hero section.
-Show a split-screen comparison with a worn vintage dresser on the left
-and a beautifully restored navy blue dresser with gold hardware on the right.
-Use a dark, premium color scheme (#020617 background).
-Include an emerald green "Try 3D Simulation" button.
-Professional SaaS interface design, clean and minimal.
-```
+Cuando el archivo esté en la carpeta, dime:
 
-### Simulación 3D
+> _"Ya subí el archivo `mi-silla-lujo.mp4` a la carpeta de videos, actualiza el componente por favor."_
 
-```
-Design an interactive 3D furniture simulation interface.
-Show a rotating chair model in the center, color swatches on the left,
-and control buttons on the right. Dark premium UI with emerald green accents.
-Include "Simulation Active" badge and coordinate tracking display.
-Modern professional SaaS design.
-```
+Y yo me encargaré de modificar el código de `Hero.tsx` o `Gallery.tsx` para que se vea en vivo.
 
 ---
 
-## 🛠️ Herramientas Alternativas (Todas GRATIS o con Free Tier)
+## 🛠️ Cómo usar estos Prompts
 
-### 1. **Canva AI** (Gratis con límites)
-
-- **URL:** canva.com
-- **Feature:** "Magic Design" - Genera mockups automáticamente
-- **Ventaja:** Fácil de usar, templates profesionales
-
-### 2. **Uizard** (Gratis para 2 proyectos)
-
-- **URL:** uizard.io
-- **Feature:** Genera UI desde texto
-- **Ventaja:** Específico para mockups de apps/web
-
-### 3. **Galileo AI** (Beta gratuita)
-
-- **URL:** usegalileo.ai
-- **Feature:** Genera UI completas desde descripción
-- **Ventaja:** Código editable después
-
-### 4. **Framer AI** (Gratis)
-
-- **URL:** framer.com
-- **Feature:** Genera sitios completos con IA
-- **Ventaja:** Puedes publicar directamente
+1. **Gemini Pro**: Pégale el prompt y pídele _"Mejora este prompt para Imagen 3 respetando la estética de Renova-Hub"_.
+2. **Imagen 3**: Genera la imagen y cárgala en `public/images/hero/` o `gallery/`.
 
 ---
 
-## 📸 Workflow Recomendado
+## 📋 Lista de Imágenes a Reemplazar
 
-### Paso 1: Generar con Nano Banana (Veo 3)
-
-1. Copia prompts de arriba
-2. Genera 3-5 imágenes clave
-3. Descarga en alta resolución
-
-### Paso 2: Refinar en Figma (si necesario)
-
-1. Importa imágenes generadas
-2. Ajusta colores, textos, espaciado
-3. Exporta versión final
-
-### Paso 3: Integrar en Proyecto
-
-```bash
-# Guardar en proyecto
-cp ~/Downloads/hero-mockup.png \
-  /Users/jorgefranco/Documents/Cursos/renova-hub/public/images/mockups/
-
-# Actualizar README con imágenes
-```
+- [ ] `chair-before.png` / `chair-after.png` (Hero - Heritage Innovation)
+- [ ] `dresser-before.png` / `dresser-after.png` (Gallery - Classic Luxury)
+- [ ] `desk-before.png` / `desk-after.png` (Gallery - Dark Luxury)
 
 ---
 
-## 🎯 Prioridad de Herramientas
-
-**Para ti, recomiendo este orden:**
-
-1. **Nano Banana (Veo 3)** - Ya tienes acceso, GRATIS
-2. **Figma + Magician** - GRATIS, editable
-3. **Midjourney** - $10/mes, mejor calidad
-4. **Canva AI** - GRATIS, fácil de usar
-
----
-
-## 💡 Tip Pro
-
-**Combina herramientas:**
-
-1. Genera base con Veo 3
-2. Refina en Figma
-3. Exporta versión final
-
-**Resultado:** Mockups profesionales sin gastar dinero.
-
----
-
-## 📋 Checklist de Imágenes Necesarias
-
-- [ ] Hero Section (before/after)
-- [ ] Simulación 3D interface
-- [ ] Pricing tiers comparison
-- [ ] Gallery grid layout
-- [ ] Mobile responsive view
-- [ ] Dashboard premium (opcional)
-
----
-
-**Última actualización:** 2026-02-09  
-**Herramientas recomendadas:** Nano Banana (Veo 3) + Figma
+**Última actualización:** 2026-02-11 (Post Fase 1.5)  
+**Modelos:** Optimizado para Gemini 2.0 / Imagen 3
