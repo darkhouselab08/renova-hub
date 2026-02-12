@@ -16,6 +16,7 @@
 6. [Flujo de Datos](#-flujo-de-datos)
 7. [Convenciones de Código](#-convenciones-de-código)
 8. [Estrategia de Branches](#-estrategia-de-branches)
+9. [Protocolo de Inicio (Agente)](#-protocolo-de-inicio-agente)
 
 ---
 
@@ -669,6 +670,21 @@ hotfix/critical-bug-name
    - Tier Enterprise
    - Partnerships con tiendas
    - Mercado internacional
+
+---
+
+## 🤖 Protocolo de Inicio (Agente)
+
+Este protocolo asegura que el agente (Gemini) esté alineado con el estado del proyecto antes de realizar cambios.
+
+### Disparador: "ingeniero, iniciamos"
+
+Al recibir esta frase, el agente DEBE:
+
+1.  **Validar Rama**: Verificar que la rama activa NO sea `main`. Si es `main`, cambiar a `develop`.
+2.  **Sintonizar Contexto**: Leer `ARCHITECTURE.md` y `task.md`.
+3.  **Chequear Novedades**: Leer `.agent/CONTEXT.md` para capturar instrucciones externas recientes.
+4.  **Confirmar Status**: Reportar rama activa y tarea siguiente antes de ejecutar.
 
 ---
 
