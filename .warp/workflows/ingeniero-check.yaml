@@ -1,0 +1,25 @@
+# Ingeneiro-Check: M4 Pro Health & Project Status
+# Este workflow verifica la salud del sistema y el estado del servidor Next.js
+---
+name: ingeniero-check
+command: |
+  echo "🚀 Iniciando Diagnóstico de la Nave (M4 Pro)..."
+  echo "---"
+  echo "🔄 Estado de Procesos Node/Next:"
+  ps aux | grep "next" | grep -v grep || echo "❌ Servidor no detectado"
+  echo "---"
+  echo "📊 Presión de Memoria (Resumen):"
+  memory_pressure
+  echo "---"
+  echo "🧹 Buscando Procesos Zombis (Chrome/Node):"
+  pgrep -fl "chrome-headless" || echo "✅ No hay zombis de Chrome"
+  echo "---"
+  echo "✨ Status de Git:"
+  git status -s
+  echo "---"
+  echo "✅ Nave lista para operar."
+description: Verifica procesos activos, presión de memoria y status de git para el M4 Pro.
+tags:
+  - diagnostic
+  - m4pro
+  - git

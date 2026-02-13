@@ -35,30 +35,24 @@
 
 **Razón de estas decisiones:** Ver `technology_stack_decision.md`
 
-### **Estado Actual del Proyecto**
+### **Estado Actual: La Nave Operando (2026-02-12)**
 
 **Completado:**
 
+- ✅ **Restauración UI**: Estética _Hamptons / Lujo Patrimonial_ activa (Playfair Display).
+- ✅ **Optimización M4 Pro**: Configuración de `next.config.ts` y workflows de Warp.
+- ✅ **Navegación**: Reparada la lógica de anclajes en el Header.
 - ✅ Hero Section (con WorldViewport)
 - ✅ Gallery Section (9 proyectos con filtros + WorldViewport)
-- ✅ About Section
-- ✅ Process Section
-- ✅ Testimonials
-- ✅ Contact Form
-- ✅ Footer
-- ✅ **Fase 1 Genie 3:** Preparación arquitectónica completa
-  - ✅ Tipos TypeScript para simulaciones
-  - ✅ Componente WorldViewport wrapper
-  - ✅ Captura de coordenadas de interacción
-  - ✅ Refactorización Gallery y Hero
+- ✅ About Section, Process, Testimonials, Contact Form, Footer.
 
-**Pendiente:**
+**En Curso / Pendiente:**
 
-- [ ] **Fase 2 Genie 3:** Backend Python/FastAPI + API integration
-- [ ] Arreglar botones de navegación
-- [ ] Generar fotos before/after coherentes
-- [ ] Deploy a Vercel
-- [ ] Comprar dominio
+- [ ] **Sincronización Estética**: Refactorizar variantes hardcoded en `Testimonials`.
+- [ ] **Fase 2 Genie 3**: Backend Python/FastAPI + API integration.
+- [ ] Arreglar botones de navegación restantes.
+- [ ] Deploy a Vercel para "enlace completo".
+- [ ] Comprar dominio.
 
 **Deuda Técnica:**
 
@@ -264,3 +258,87 @@ https://github.com/darkhouselab08/Usuario-Vertex-Partner-.git
 analiza este video: https://youtu.be/wksiOesibKg?si=FEy8dz6HEIuSeV1W
 
 https://notebooklm.google.com/notebook/2807bc4e-b946-4601-8677-b2c7cd39e270
+
+Actulaizacion 2026-02-12
+
+# Contexto de Entorno y Optimización - Mac Pro M4 Pro
+
+para que jorge no tenga problemas con la memoria ram y el rendimiento del equipo.
+
+## 🖥️ Perfil del Hardware
+
+- **Modelo:** Mac Pro / MacBook Pro con Chip Apple M4 Pro.
+- **Memoria RAM:** 24 GB (Arquitectura de memoria unificada).
+- **Estado Base:** Presión de memoria nominalmente en "Verde", pero con alta carga en procesos de desarrollo (Node.js/Next.js).
+
+## 🛠️ Stack Tecnológico
+
+- **Terminal:** Warp (AI-enabled terminal).
+- **IDE:** Antigravity (Entorno de desarrollo principal).
+- **Control de Versiones:** GitHub / Git.
+- **Entorno de Ejecución:** Node.js, Next.js, Chrome Headless (Puppeteer/Playwright).
+
+## 🎯 Instrucciones para el Agente de IA
+
+Como asistente en este entorno, debes seguir estas reglas de comportamiento para ayudar al usuario a mantener el equilibrio del sistema:
+
+### 1. Monitoreo y Diagnóstico
+
+- **Análisis de Node.js:** Si detectas que el servidor de desarrollo o scripts de Node superan el 100% de CPU por tiempo prolongado, sugiere una revisión de bucles infinitos o fugas de memoria, pero **no mates el proceso** sin preguntar.
+- **Gestión de Memoria:** Con 24GB de RAM, el sistema es robusto. No sugieras cerrar aplicaciones a menos que la presión de memoria pase a "Amarillo" o "Rojo".
+
+### 2. Protocolo de Acción (Seguridad Primero)
+
+- **Prohibición de Eliminación:** Nunca sugieras comandos como `rm -rf`, `killall`, o limpieza de caché de forma automática.
+- **Confirmación Doble:** Antes de cualquier optimización que afecte procesos del sistema o del `kernel_task`, explica primero la consecuencia técnica.
+- **Equilibrio:** Prioriza siempre el flujo de trabajo del desarrollador sobre el ahorro extremo de energía.
+
+### 3. Flujo de Trabajo Recomendado (Workflow)
+
+- **Warp + GitHub:** Sugiere comandos de Git optimizados para Warp (uso de Workflows de Warp para tareas repetitivas).
+- **Antigravity:** Utiliza el contexto de este archivo para entender que el usuario prefiere estabilidad y "observabilidad" antes que intervenciones agresivas.
+
+## 📈 Recomendaciones de Rendimiento para M4 Pro
+
+- **Compilación Nativa:** Asegúrate de que todas las dependencias se instalen para arquitectura `arm64` (Apple Silicon) para evitar el uso innecesario de Rosetta 2.
+- **Chrome Headless:** Si ves procesos `chrome-headless-shell` acumulados, recuerda al usuario cerrar las instancias de testing al finalizar los scripts.
+
+# 🚀 Estrategias de Potenciación: Stack M4 Pro + Warp + Antigravity
+
+Este documento define las tácticas de alto rendimiento que el agente de IA debe considerar para asistir al usuario.
+
+## 1. Sincronía Antigravity ↔️ Warp (Terminal Inteligente)
+
+El agente debe optimizar la ejecución de comandos para aprovechar las capacidades de Warp:
+
+- **Generación de Workflows:** En lugar de sugerir comandos aislados, el agente debe proponer "bloques de comandos" compatibles con Warp para tareas recurrentes (ej: levantar el entorno, correr tests y limpiar caché en una sola secuencia).
+- **Depuración Contextual:** Si el servidor de desarrollo en Warp lanza un error, el agente de Antigravity debe analizar el log para proponer la solución directamente sobre el archivo de configuración afectado.
+
+## 2. Optimización de Recursos para Chip M4 Pro
+
+Dado que contamos con una arquitectura de núcleos de rendimiento (P-cores) y eficiencia (E-cores) avanzada:
+
+- **Indexación Selectiva:** Sugerir al agente que limite la indexación de carpetas pesadas (como `build/` o `dist/`) dentro de Antigravity para mantener el uso de CPU por debajo del 10% en reposo.
+- **Detección de "Zombies" de Node:** El agente debe vigilar procesos `node` que queden activos después de cerrar sesiones de terminal en Warp, avisando al usuario antes de que consuman ciclos de CPU innecesarios.
+- **Aceleración Metal:** Si el proyecto involucra renderizado o computación pesada, el agente debe priorizar sugerencias de código que utilicen la GPU del M4 mediante frameworks optimizados para Apple Silicon.
+
+## 3. Integración Continua con GitHub (Git-Flow IA)
+
+El agente debe actuar como un revisor previo al commit:
+
+- **Analista de Diff:** Antes de que el usuario haga `push` desde Warp, el agente en Antigravity debe resumir los cambios clave y sugerir mensajes de commit basados en la lógica modificada.
+- **Control de Dependencias:** Al detectar cambios en `package.json`, el agente debe alertar sobre posibles vulnerabilidades o versiones obsoletas antes de que lleguen al repositorio de GitHub.
+
+## 4. Gestión de Estado y Prevención de Errores
+
+Para generar confianza y control total:
+
+- **Modo "Check-Before-Action":** Antes de sugerir cualquier cambio en la estructura de archivos, el agente debe presentar un resumen: "Voy a modificar [X], esto afectará a [Y]. ¿Procedo?".
+- **Limpieza Segura:** El agente debe tener una rutina de "Mantenimiento de Fin de Jornada" sugerida, donde proponga cerrar procesos `chrome-headless` o servidores `next-server` que ya no se utilicen.
+
+## 5. Recomendación de "Health-Check" Semanal
+
+El agente debe recordar al usuario realizar una revisión breve de:
+
+- **Presión de Memoria:** Verificar que el Swap se mantenga en 0 bytes (ideal para la longevidad del SSD del M4).
+- **Acumulación de Logs:** Sugerir la limpieza de archivos `.log` que puedan crecer excesivamente durante el desarrollo intensivo.

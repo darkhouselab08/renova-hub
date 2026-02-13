@@ -2,7 +2,10 @@ import { Button } from "@/components/ui/Button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-hamptons-gradient overflow-hidden">
+    <section
+      id="inicio"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+    >
       {/* Contenedor principal */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

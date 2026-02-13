@@ -1,36 +1,81 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #b89968;
-  --color-secondary: #f5f1e8;
-  --color-accent: #4a3a24;
-  --color-background: #ffffff;
-  --color-foreground: #4a3a24;
-  
-  --font-inter: var(--font-inter);
+  --font-inter: "Inter", sans-serif;
+  --font-playfair: "Playfair Display", serif;
 }
 
+/* ===== THEME SYSTEM CSS VARIABLES ===== */
+
+/* Default theme: Hamptons (Evolved from Classic) */
 :root {
-  --background: #ffffff;
-  --foreground: #4a3a24;
+  --color-background: #f8f5f0; /* Cream background */
+  --color-surface: #ffffff;
+  --color-primary: #b89968; /* Sophisticated wood/gold */
+  --color-secondary: #d4c3a3; /* Linen/creams */
+  --color-text: #1a1a1a;
+  --color-accent: #4a3a24; /* Dark wood */
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-background text-foreground antialiased;
-  }
+/* Heritage Innovation (Hybrid) */
+:root[data-theme="hybrid"] {
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-primary: #d4af37;
+  --color-secondary: #0f172a;
+  --color-text: #1e293b;
+  --color-accent: #059669;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .bg-hamptons-gradient {
-    background: linear-gradient(135deg, #faf8f5 0%, #f5f1e8 50%, #ffffff 100%);
-  }
+/* Classic Luxury Theme (Old) */
+:root[data-theme="classic"] {
+  --color-background: #fef3c7;
+  --color-surface: #ffffff;
+  --color-primary: #d4af37;
+  --color-secondary: #5c4033;
+  --color-text: #0f172a;
+  --color-accent: #059669;
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
+/* Dark Luxury Theme */
+:root[data-theme="dark"] {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-primary: #d4af37;
+  --color-secondary: #818cf8;
+  --color-text: #f8fafc;
+  --color-accent: #10b981;
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
+}
+
+/* Utility for Hamptons Gradient */
+.bg-hamptons-gradient {
+  background: radial-gradient(circle at top left, #fdfcfb 0%, #f8f5f0 100%);
+}
+
+/* Smooth transitions when switching themes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom base styles */
+body {
+  @apply bg-[var(--color-background)] text-[var(--color-text)];
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Fix for WorldViewport in Grid */
+.world-viewport-container {
+  @apply aspect-video relative overflow-hidden;
 }

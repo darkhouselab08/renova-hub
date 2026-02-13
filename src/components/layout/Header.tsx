@@ -33,16 +33,16 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
+          <Link href="#inicio" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
             Inicio
           </Link>
-          <Link href="/galeria" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
+          <Link href="#gallery" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
             Galería
           </Link>
-          <Link href="/servicios" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
-            Servicios
+          <Link href="#about" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
+            Nosotros
           </Link>
-          <Link href="/contacto" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
+          <Link href="#contact" className="text-sm font-medium text-[#4a3a24] hover:text-[#b89968] transition-colors">
             Contacto
           </Link>
           <Button variant="primary" size="sm">
