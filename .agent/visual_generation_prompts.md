@@ -1,124 +1,75 @@
-# 🎨 Generación Visual Premium - Renova-Hub
+# 🎨 Dirección de Arte y Generación Visual - Renova-Hub
 
-Este documento contiene los prompts optimizados para generar las imágenes de "Antes y Después" que coincidan con la estética actual del proyecto.
+> **Concepto**: "Restauración como Alta Costura" (The Louis Vuitton Philosophy)
+
+Este manual define el ADN visual del proyecto, elevando la restauración de muebles al estatus de pieza de colección.
 
 ---
 
-## 💎 Instrucciones para Crear el "Gem" en Gemini Pro
+## 💎 Instrucciones de Ingeniería para el Gem: **"Renova Creative Director"**
 
-Copia y pega esto en las "Instrucciones del Sistema" al crear un nuevo Gem llamado **"Renova Visual Designer"**:
+Copia y pega este prompt maestro al configurar tu Gem especializado en Gemini:
 
-```text
-Eres un experto en diseño de interiores y restauración de muebles de lujo, especializado en generar prompts para Imagen 3. Tu objetivo es crear imágenes de "Antes y Después" para el proyecto Renova-Hub.
+```markdown
+# ROLE: Renova-Hub Creative Director & Master Prompt Engineer
 
-Sigue siempre estas directrices estéticas:
-1. PALETA: Lujo oscuro, maderas nobles, acabados en oro/latón, y colores profundos (Navy, Charcoal, Forest Green).
-2. ESTILO: Fotografía profesional de producto, iluminación dramática pero limpia, estilo "Architectural Digest".
-3. TEMAS: Debes conocer los 3 temas del proyecto:
-   - 'Heritage Innovation': Mix de lo antiguo con toques modernos.
-   - 'Classic Luxury': Opulencia tradicional, colores claros y dorados.
-   - 'Dark Luxury': Elegancia extrema con tonos negros, carbón y metales oscuros.
+# BACKGROUND:
 
-Al generar prompts, asegúrate de que el "Antes" se vea desgastado pero con potencial, y el "Después" se vea como una pieza de colección en una mansión de los Hamptons.
+Eres el Director Creativo de Renova-Hub, una casa de restauración de lujo en los Hamptons. Tu ADN combina el rigor técnico de un artesano del siglo XIX con la sofisticación visual de una campaña de Louis Vuitton o Hermès. No solo vendes muebles; vendes "Patrimonio Redimido".
+
+# CORE IDENTITY:
+
+- ESTILO: Lujo silente, sofisticación artesanal, minimalismo cálido.
+- LENGUAJE VISUAL: "Quiet Luxury". Iluminación Rembrandt, texturas táctiles, macros que muestran el grano de la madera como si fuera tejido de seda.
+- REFERENCIA: Campañas de baúles de Louis Vuitton, editoriales de Architectural Digest, interiorismo de Axel Vervoordt.
+
+# OPERATIONAL PROTOCOLS:
+
+1. NARRATIVA ANTES/DESPUÉS: El "Antes" no es basura, es "herencia olvidada" (luz natural, polvo fino, textura mate). El "Después" es una "obra maestra renacida" (brillo controlado, detalles en oro cepillado, maderas oscuras y profundas).
+2. OPTIMIZACIÓN IMAGEN 3 / VEO 3.1: Genera prompts técnicos que incluyan:
+   - Lens: 85mm (f/1.2) para retratos de muebles.
+   - Lighting: "Golden Hour" filtrada por lino o "Moody Studio" con focos direccionales.
+   - Textures: Wood grain, velvet, aged brass, raw silk.
+
+# TASK:
+
+Tu misión es transformar ideas vagas en directrices visuales de alta gama. Siempre entrega:
+
+- Prompt para Imagen (Split-screen o slider-ready).
+- Prompt para Video (Cinematic motion).
+- Justificación estética (¿Por qué esto transmite lujo?).
 ```
 
 ---
 
-## 🚀 Prompts Optimizados (Imagen 3 / Gemini Pro)
+## 🎬 Prompts de "Alta Costura" (Optimizados)
 
-### 1. Tema: Heritage Innovation (El del Hero)
+### 1. El Trono 'Heritage Innovation' (Hero Video)
 
-_Ideal para la silla principal o el mueble del Hero._
+**Objetivo**: Un loop de video hipnótico que redefina la marca.
 
-```text
-Professional split-screen comparison of a furniture restoration.
-Left side (Before): A worn-out, scratched mid-century modern wooden chair, dull finish, vintage fabric.
-Right side (After): The same chair restored with the 'Heritage Innovation' theme. Deep charcoal wood finish, premium textured emerald velvet upholstery, polished brass details.
-Background: High-end professional studio lighting, dark moody atmosphere.
-Style: 8k resolution, photorealistic, commercial photography, depth of field.
-```
+> **Prompt (Veo 3.1)**:
+> `Cinematic 8-second slow tracking shot. A master artisan's hand wearing a white silk glove gently slides over the armrest of a restored Victorian chair. The wood is a deep ebony with a mirror-like finish. The fabric is an emerald moiré silk. Background: A sun-drenched atelier in the Hamptons with dust motes dancing in light beams. 4K, 120fps (slow motion), ultra-realistic textures, Louis Vuitton aesthetic.`
 
-### 2. Tema: Classic Luxury
+### 2. La Transformación 'Classic Luxury' (Gallery)
 
-_Para la galería de transformaciones elegantes._
+**Objetivo**: El slider perfecto de "Antes y Después".
 
-```text
-Professional before/after furniture restoration photo.
-Left side: A dated, yellowed French provincial nightstand with broken handles.
-Right side (After): Restored with 'Classic Luxury' theme. Antique white satin finish, hand-painted gold leaf accents, crystal knobs.
-Setting: Elegant bright master bedroom in the Hamptons.
-Style: Cinematic lighting, soft shadows, 8k, ultra-detailed textures.
-```
-
-### 3. Tema: Dark Luxury
-
-_Para piezas de alto impacto y elegancia._
-
-```text
-Split view comparison of a large vintage executive desk.
-Left side: Water-damaged oak desk, peeling varnish, old stains.
-Right side (After): 'Dark Luxury' transformation. Matte black ebony stain, restored leather top insert with gold embossing, dark chrome hardware.
-Background: Private luxury library office, warm desk lamp lighting.
-Style: Sophisticated, premium quality, sharp focus, Imagen 3 style.
-```
+> **Prompt (Imagen 3)**:
+> `A sophisticated split-screen layout. Left side: A vintage Louis XV desk, dusty and scratched, standing in a dim attic. Right side: The same desk restored to perfection. Ivory lacquer finish, hand-applied gold leaf on the carvings, a fresh emerald leather top. Set in a bright, modern Hamptons library with ocean views. High-end photography, cinematic lighting, sharp focus on the grain and gold leaf.`
 
 ---
 
-## 🎬 Nueva Sección: Video Cinemático (Veo 3.1)
+## � Recomendaciones Técnicas (Deuda de Medios)
 
-_Copia este prompt si vas a usar la opción de video en Gemini:_
+Para que tu proyecto se sienta como una tienda de lujo real, necesitamos estas fotos específicas:
 
-```text
-Cinematic 5-second product showcase for Renova-Hub.
-A highly detailed 360-degree slow rotation of a restored lounge chair (Heritage Innovation theme).
-The chair features deep charcoal wood and shimmering emerald velvet upholstery.
-Dramatic studio lighting highlighting the texture of the fabric and the polished brass legs.
-High contrast, dark luxury background, 4k, 24fps, smooth camera movement.
-```
+1. **La "Macro de Materiales"**: Una foto de primer plano de maderas nobles y telas de terciopelo. Esto genera confianza en la calidad.
+2. **El "Gesto del Artesano"**: Al menos una imagen/video de manos trabajando. No queremos que parezca hecho por máquinas; el lujo es manual.
+3. **El "Vínculo con el Entorno"**: Los muebles deben estar en contextos que el cliente reconozca: una villa frente al mar, una biblioteca privada, un jet privado.
+4. **Coherencia de Ángulos**: ¡Crucial! Para el slider de "Antes y Después", el prompt debe especificar _"Fixed camera angle, same perspective for both sides"_ para que el cambio sea fluido en la web.
 
 ---
 
-## 🛠️ Cómo subir los archivos al proyecto (Workflow para Jorge)
-
-Una vez que descargues tus videos o imágenes de Gemini, sigue estos pasos para que yo pueda usarlos:
-
-### 1. Ubicación de los archivos
-
-Mueve los archivos desde tu carpeta de `Descargas` a estas carpetas del proyecto:
-
-- **Videos**: `/public/videos/hero/`
-- **Imágenes Hero**: `/public/images/hero/`
-- **Imágenes Galería**: `/public/images/gallery/`
-
-### 2. Formatos recomendados
-
-- **Video**: `.mp4`
-- **Imágenes**: `.png` (para sliders) o `.jpg` (para fondos)
-
-### 3. Notificación
-
-Cuando el archivo esté en la carpeta, dime:
-
-> _"Ya subí el archivo `mi-silla-lujo.mp4` a la carpeta de videos, actualiza el componente por favor."_
-
-Y yo me encargaré de modificar el código de `Hero.tsx` o `Gallery.tsx` para que se vea en vivo.
-
----
-
-## 🛠️ Cómo usar estos Prompts
-
-1. **Gemini Pro**: Pégale el prompt y pídele _"Mejora este prompt para Imagen 3 respetando la estética de Renova-Hub"_.
-2. **Imagen 3**: Genera la imagen y cárgala en `public/images/hero/` o `gallery/`.
-
----
-
-## 📋 Lista de Imágenes a Reemplazar
-
-- [ ] `chair-before.png` / `chair-after.png` (Hero - Heritage Innovation)
-- [ ] `dresser-before.png` / `dresser-after.png` (Gallery - Classic Luxury)
-- [ ] `desk-before.png` / `desk-after.png` (Gallery - Dark Luxury)
-
----
-
-**Última actualización:** 2026-02-11 (Post Fase 1.5)  
-**Modelos:** Optimizado para Gemini 2.0 / Imagen 3
+**Última actualización:** 15 de febrero de 2026 (Launch Phase)  
+**Versión:** 2.0 (Louis Vuitton Style Integration)

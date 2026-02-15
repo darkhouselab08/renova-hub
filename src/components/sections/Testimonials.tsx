@@ -33,34 +33,34 @@ export default function Testimonials() {
     }
   ];
 
-  // Variantes de estilo para cada identidad visual
+  // Variantes de estilo alineadas con el ADN de Renova-Hub
   const styleVariants = {
     classic: {
-      container: 'font-serif border-2 border-amber-400/60 bg-gradient-to-br from-amber-50/50 to-orange-50/30 shadow-amber-200/50',
-      text: 'text-amber-900',
-      name: 'text-amber-800 font-semibold',
-      location: 'text-amber-700/70',
-      project: 'text-amber-600',
-      star: 'text-amber-500',
-      avatar: 'bg-gradient-to-br from-amber-400 to-orange-500'
+      container: 'border-2 border-[var(--color-primary)]/30 bg-[var(--color-surface)] shadow-xl',
+      text: 'text-[var(--color-text)] opacity-90',
+      name: 'text-[var(--color-accent)] font-bold',
+      location: 'text-[var(--color-accent)]/60',
+      project: 'text-[var(--color-primary)] font-medium',
+      star: 'text-[var(--color-primary)]',
+      avatar: 'bg-[var(--color-primary)]'
     },
     dark: {
-      container: 'font-sans border border-cyan-500/50 bg-slate-900 ring-1 ring-cyan-500/30 shadow-cyan-500/20',
-      text: 'text-slate-100',
-      name: 'text-cyan-400 font-bold',
-      location: 'text-slate-400',
-      project: 'text-cyan-300',
-      star: 'text-cyan-400',
-      avatar: 'bg-gradient-to-br from-cyan-500 to-blue-600'
+      container: 'border border-[var(--color-secondary)]/20 bg-[#1a1a1a] shadow-inner',
+      text: 'text-white/90',
+      name: 'text-[var(--color-secondary)] font-bold',
+      location: 'text-white/40',
+      project: 'text-[var(--color-secondary)]/80',
+      star: 'text-[var(--color-secondary)]',
+      avatar: 'bg-[var(--color-secondary)]'
     },
     heritage: {
-      container: 'font-serif border-4 border-double border-amber-700/60 bg-amber-50/80 shadow-inner',
-      text: 'text-amber-950',
-      name: 'text-amber-900 font-semibold',
-      location: 'text-amber-800/70',
-      project: 'text-amber-700',
-      star: 'text-amber-600',
-      avatar: 'bg-gradient-to-br from-amber-600 to-yellow-700'
+      container: 'border-4 border-double border-[var(--color-primary)]/50 bg-[var(--color-background)] shadow-lg',
+      text: 'text-[var(--color-accent)]',
+      name: 'text-[var(--color-accent)] font-bold',
+      location: 'text-[var(--color-accent)]/70',
+      project: 'text-[var(--color-primary)] italic',
+      star: 'text-[var(--color-primary)]',
+      avatar: 'bg-[var(--color-accent)]'
     }
   };
 
