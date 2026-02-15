@@ -592,26 +592,19 @@ hotfix/critical-bug-name
 5. ✅ Crear tipos TypeScript para simulaciones
 6. ✅ Documentar arquitectura Genie 3
 
-### Fase 1.5 - Validación (Próximas 2-4 semanas)
+### Fase 1.5 - Validación Visual y Despliegue (EN CURSO) 🟢
 
-**Objetivo**: Validar propuesta de valor antes de construir backend
+**Objetivo**: Consolidar la identidad de lujo y validar la propuesta de valor.
 
-1. [ ] Deploy a Vercel
+1. [x] Refinar Dirección de Arte (Estilo Louis Vuitton)
+2. [x] Refactorizar Testimonials (Consistencia de temas)
+3. [ ] Generar Assets AAA (4K Video & Imagen 3)
+4. [ ] Deploy a Vercel
    - Configurar dominio
    - Setup Google Analytics
-2. [ ] Implementar "Fake Door"
+5. [ ] Implementar "Fake Door"
    - Modal de simulación 3D
    - Captura de emails interesados
-   - Tracking de interacciones
-
-3. [ ] Validación con Clientes
-   - Contactar 10 clientes potenciales
-   - Entrevistas (usar "The Mom Test")
-   - Analizar feedback
-
-4. [ ] Decisión Go/No-Go
-   - ✅ 7+ clientes interesados → Proceder a Fase 2
-   - ❌ <5 clientes interesados → Pivotar
 
 ### Fase 2 - Backend + API (3 meses, si Fase 1.5 exitosa)
 
