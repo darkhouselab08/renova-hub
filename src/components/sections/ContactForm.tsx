@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState } from "react";
+import Image from "next/image";
 
 interface FormData {
   name: string;
@@ -9,133 +9,139 @@ interface FormData {
   phone: string;
   furnitureType: string;
   description: string;
-  preferredStyle: 'classic' | 'dark' | 'hybrid' | '';
+  preferredStyle: "classic" | "dark" | "hybrid" | "";
   photos: File[];
 }
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    furnitureType: '',
-    description: '',
-    preferredStyle: '',
-    photos: []
+    name: "",
+    email: "",
+    phone: "",
+    furnitureType: "",
+    description: "",
+    preferredStyle: "",
+    photos: [],
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const [photoPreview, setPhotoPreview] = useState<string[]>([]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length + formData.photos.length > 5) {
-      alert('Maximum 5 photos allowed');
+      alert("Maximum 5 photos allowed");
       return;
     }
 
-    setFormData(prev => ({ ...prev, photos: [...prev.photos, ...files] }));
-    
+    setFormData((prev) => ({ ...prev, photos: [...prev.photos, ...files] }));
+
     // Create previews
-    files.forEach(file => {
+    files.forEach((file) => {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPhotoPreview(prev => [...prev, reader.result as string]);
+        setPhotoPreview((prev) => [...prev, reader.result as string]);
       };
       reader.readAsDataURL(file);
     });
   };
 
   const removePhoto = (index: number) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      photos: prev.photos.filter((_, i) => i !== index)
+      photos: prev.photos.filter((_, i) => i !== index),
     }));
-    setPhotoPreview(prev => prev.filter((_, i) => i !== index));
+    setPhotoPreview((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
       // TODO: Integrate with Resend API in Phase 2
       // For now, just simulate submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Form submitted:', formData);
-      setSubmitStatus('success');
-      
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      console.log("Form submitted:", formData);
+      setSubmitStatus("success");
+
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        furnitureType: '',
-        description: '',
-        preferredStyle: '',
-        photos: []
+        name: "",
+        email: "",
+        phone: "",
+        furnitureType: "",
+        description: "",
+        preferredStyle: "",
+        photos: [],
       });
       setPhotoPreview([]);
     } catch (error) {
-      console.error('Submission error:', error);
-      setSubmitStatus('error');
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section 
-      id="contact" 
-      className="py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: 'var(--color-surface)' }}
+    <section
+      id="contact"
+      className="px-4 py-20 sm:px-6 lg:px-8"
+      style={{ backgroundColor: "var(--color-surface)" }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="mx-auto max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ 
-              fontFamily: 'var(--font-heading)',
-              color: 'var(--color-text)'
+        <div className="mb-12 text-center">
+          <h2
+            className="mb-4 text-4xl font-bold md:text-5xl"
+            style={{
+              fontFamily: "var(--font-heading)",
+              color: "var(--color-text)",
             }}
           >
-            Get Your Free <span style={{ color: 'var(--color-primary)' }}>Quote</span>
+            Get Your Free{" "}
+            <span style={{ color: "var(--color-primary)" }}>Quote</span>
           </h2>
-          <p 
-            className="text-lg md:text-xl max-w-2xl mx-auto opacity-80"
-            style={{ color: 'var(--color-text)' }}
+          <p
+            className="mx-auto max-w-2xl text-lg opacity-80 md:text-xl"
+            style={{ color: "var(--color-text)" }}
           >
-            Tell us about your furniture and we'll provide a detailed estimate within 24 hours.
+            Tell us about your furniture and we&apos;ll provide a detailed
+            estimate within 24 hours.
           </p>
         </div>
 
         {/* Form */}
-        <form 
+        <form
           onSubmit={handleSubmit}
           className="rounded-2xl p-8 shadow-lg"
-          style={{ 
-            backgroundColor: 'var(--color-background)',
-            border: '1px solid rgba(0,0,0,0.1)'
+          style={{
+            backgroundColor: "var(--color-background)",
+            border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
           {/* Name & Email */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="mb-6 grid gap-6 md:grid-cols-2">
             <div>
-              <label 
+              <label
                 htmlFor="name"
-                className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text)' }}
+                className="mb-2 block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
               >
                 Full Name *
               </label>
@@ -146,21 +152,21 @@ export default function ContactForm() {
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-                style={{ 
-                  backgroundColor: 'var(--color-surface)',
-                  borderColor: 'var(--color-primary)',
-                  color: 'var(--color-text)'
+                className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-primary)",
+                  color: "var(--color-text)",
                 }}
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label 
+              <label
                 htmlFor="email"
-                className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text)' }}
+                className="mb-2 block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
               >
                 Email *
               </label>
@@ -171,11 +177,11 @@ export default function ContactForm() {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-                style={{ 
-                  backgroundColor: 'var(--color-surface)',
-                  borderColor: 'var(--color-primary)',
-                  color: 'var(--color-text)'
+                className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-primary)",
+                  color: "var(--color-text)",
                 }}
                 placeholder="john@example.com"
               />
@@ -183,12 +189,12 @@ export default function ContactForm() {
           </div>
 
           {/* Phone & Furniture Type */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="mb-6 grid gap-6 md:grid-cols-2">
             <div>
-              <label 
+              <label
                 htmlFor="phone"
-                className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text)' }}
+                className="mb-2 block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
               >
                 Phone Number
               </label>
@@ -198,21 +204,21 @@ export default function ContactForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-                style={{ 
-                  backgroundColor: 'var(--color-surface)',
-                  borderColor: 'var(--color-primary)',
-                  color: 'var(--color-text)'
+                className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-primary)",
+                  color: "var(--color-text)",
                 }}
                 placeholder="(555) 123-4567"
               />
             </div>
 
             <div>
-              <label 
+              <label
                 htmlFor="furnitureType"
-                className="block text-sm font-medium mb-2"
-                style={{ color: 'var(--color-text)' }}
+                className="mb-2 block text-sm font-medium"
+                style={{ color: "var(--color-text)" }}
               >
                 Furniture Type *
               </label>
@@ -222,11 +228,11 @@ export default function ContactForm() {
                 required
                 value={formData.furnitureType}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-                style={{ 
-                  backgroundColor: 'var(--color-surface)',
-                  borderColor: 'var(--color-primary)',
-                  color: 'var(--color-text)'
+                className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+                style={{
+                  backgroundColor: "var(--color-surface)",
+                  borderColor: "var(--color-primary)",
+                  color: "var(--color-text)",
                 }}
               >
                 <option value="">Select type...</option>
@@ -243,10 +249,10 @@ export default function ContactForm() {
 
           {/* Preferred Style */}
           <div className="mb-6">
-            <label 
+            <label
               htmlFor="preferredStyle"
-              className="block text-sm font-medium mb-2"
-              style={{ color: 'var(--color-text)' }}
+              className="mb-2 block text-sm font-medium"
+              style={{ color: "var(--color-text)" }}
             >
               Preferred Style
             </label>
@@ -255,11 +261,11 @@ export default function ContactForm() {
               name="preferredStyle"
               value={formData.preferredStyle}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-              style={{ 
-                backgroundColor: 'var(--color-surface)',
-                borderColor: 'var(--color-primary)',
-                color: 'var(--color-text)'
+              className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+              style={{
+                backgroundColor: "var(--color-surface)",
+                borderColor: "var(--color-primary)",
+                color: "var(--color-text)",
               }}
             >
               <option value="">Not sure yet...</option>
@@ -271,10 +277,10 @@ export default function ContactForm() {
 
           {/* Description */}
           <div className="mb-6">
-            <label 
+            <label
               htmlFor="description"
-              className="block text-sm font-medium mb-2"
-              style={{ color: 'var(--color-text)' }}
+              className="mb-2 block text-sm font-medium"
+              style={{ color: "var(--color-text)" }}
             >
               Project Description *
             </label>
@@ -285,11 +291,11 @@ export default function ContactForm() {
               value={formData.description}
               onChange={handleInputChange}
               rows={4}
-              className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2"
-              style={{ 
-                backgroundColor: 'var(--color-surface)',
-                borderColor: 'var(--color-primary)',
-                color: 'var(--color-text)'
+              className="w-full rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
+              style={{
+                backgroundColor: "var(--color-surface)",
+                borderColor: "var(--color-primary)",
+                color: "var(--color-text)",
               }}
               placeholder="Tell us about your furniture piece and what you'd like to achieve..."
             />
@@ -297,16 +303,16 @@ export default function ContactForm() {
 
           {/* Photo Upload */}
           <div className="mb-8">
-            <label 
-              className="block text-sm font-medium mb-2"
-              style={{ color: 'var(--color-text)' }}
+            <label
+              className="mb-2 block text-sm font-medium"
+              style={{ color: "var(--color-text)" }}
             >
               Upload Photos (Optional, max 5)
             </label>
-            <div 
-              className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:opacity-80 transition-opacity"
-              style={{ borderColor: 'var(--color-primary)' }}
-              onClick={() => document.getElementById('photo-upload')?.click()}
+            <div
+              className="cursor-pointer rounded-lg border-2 border-dashed p-6 text-center transition-opacity hover:opacity-80"
+              style={{ borderColor: "var(--color-primary)" }}
+              onClick={() => document.getElementById("photo-upload")?.click()}
             >
               <input
                 type="file"
@@ -316,38 +322,46 @@ export default function ContactForm() {
                 onChange={handlePhotoUpload}
                 className="hidden"
               />
-              <svg 
-                className="w-12 h-12 mx-auto mb-3 opacity-60" 
-                fill="none" 
-                stroke="var(--color-primary)" 
+              <svg
+                className="mx-auto mb-3 h-12 w-12 opacity-60"
+                fill="none"
+                stroke="var(--color-primary)"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
-              <p style={{ color: 'var(--color-text)' }} className="opacity-70">
+              <p style={{ color: "var(--color-text)" }} className="opacity-70">
                 Click to upload or drag and drop
               </p>
-              <p style={{ color: 'var(--color-text)' }} className="text-sm opacity-50 mt-1">
+              <p
+                style={{ color: "var(--color-text)" }}
+                className="mt-1 text-sm opacity-50"
+              >
                 PNG, JPG up to 10MB each
               </p>
             </div>
 
             {/* Photo Previews */}
             {photoPreview.length > 0 && (
-              <div className="grid grid-cols-3 md:grid-cols-5 gap-4 mt-4">
+              <div className="mt-4 grid grid-cols-3 gap-4 md:grid-cols-5">
                 {photoPreview.map((preview, index) => (
-                  <div key={index} className="relative group">
+                  <div key={index} className="group relative">
                     <Image
                       src={preview}
                       alt={`Preview ${index + 1}`}
                       width={100}
                       height={100}
-                      className="rounded-lg object-cover w-full h-24"
+                      className="h-24 w-full rounded-lg object-cover"
                     />
                     <button
                       type="button"
                       onClick={() => removePhoto(index)}
-                      className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white opacity-0 transition-opacity group-hover:opacity-100"
                     >
                       ×
                     </button>
@@ -361,28 +375,28 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
-            style={{ 
-              backgroundColor: 'var(--color-primary)',
-              color: 'var(--color-background)'
+            className="w-full rounded-lg py-4 text-lg font-semibold shadow-lg transition-all hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
+            style={{
+              backgroundColor: "var(--color-primary)",
+              color: "var(--color-background)",
             }}
           >
-            {isSubmitting ? 'Sending...' : 'Get Free Quote'}
+            {isSubmitting ? "Sending..." : "Get Free Quote"}
           </button>
 
           {/* Status Messages */}
-          {submitStatus === 'success' && (
-            <div 
-              className="mt-4 p-4 rounded-lg text-center"
-              style={{ backgroundColor: '#10b981', color: 'white' }}
+          {submitStatus === "success" && (
+            <div
+              className="mt-4 rounded-lg p-4 text-center"
+              style={{ backgroundColor: "#10b981", color: "white" }}
             >
-              ✓ Thank you! We'll send your quote within 24 hours.
+              ✓ Thank you! We&apos;ll send your quote within 24 hours.
             </div>
           )}
-          {submitStatus === 'error' && (
-            <div 
-              className="mt-4 p-4 rounded-lg text-center"
-              style={{ backgroundColor: '#ef4444', color: 'white' }}
+          {submitStatus === "error" && (
+            <div
+              className="mt-4 rounded-lg p-4 text-center"
+              style={{ backgroundColor: "#ef4444", color: "white" }}
             >
               ✗ Something went wrong. Please try again or email us directly.
             </div>
@@ -391,30 +405,50 @@ export default function ContactForm() {
 
         {/* Contact Info */}
         <div className="mt-12 text-center">
-          <p 
-            className="text-sm opacity-70 mb-2"
-            style={{ color: 'var(--color-text)' }}
+          <p
+            className="mb-2 text-sm opacity-70"
+            style={{ color: "var(--color-text)" }}
           >
             Prefer to call or email?
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a 
+            <a
               href="tel:+15551234567"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-              style={{ color: 'var(--color-primary)' }}
+              className="flex items-center gap-2 transition-opacity hover:opacity-80"
+              style={{ color: "var(--color-primary)" }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
               </svg>
               (555) 123-4567
             </a>
-            <a 
+            <a
               href="mailto:info@renovahub.com"
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-              style={{ color: 'var(--color-primary)' }}
+              className="flex items-center gap-2 transition-opacity hover:opacity-80"
+              style={{ color: "var(--color-primary)" }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
               </svg>
               info@renovahub.com
             </a>

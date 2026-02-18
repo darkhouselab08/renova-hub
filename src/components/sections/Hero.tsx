@@ -4,65 +4,80 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      className="bg-hamptons-gradient relative flex min-h-screen items-center overflow-hidden pt-20"
     >
       {/* Contenedor principal */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/60 backdrop-blur-md rounded-full shadow-sm mb-8 border border-[#e8dcc8]">
+      <div className="relative z-10 container mx-auto px-4 py-32 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Badge con animación de entrada */}
+          <div className="animate-fade-in border-wood-200 mb-8 inline-flex items-center gap-2 rounded-full border bg-white/60 px-6 py-2 shadow-sm backdrop-blur-md">
             <span className="text-xl">✨</span>
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#8b6f47]">
+            <span className="text-accent text-[10px] font-semibold tracking-[0.2em] uppercase sm:text-xs">
               Mobiliario con Alma y Legado
             </span>
           </div>
 
-          {/* Título principal */}
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-[#4a3a24] mb-8 leading-[1.1] tracking-tight">
+          {/* Título principal con refinamiento tipográfico */}
+          <h1 className="animate-slide-up text-accent mb-8 text-5xl leading-[1.1] font-bold tracking-tight transition-all sm:text-7xl lg:text-8xl">
             Elevamos la esencia de tus{" "}
-            <span className="text-[#b89968] italic font-serif">
-              clásicos
-            </span>
+            <span className="text-primary font-serif italic">clásicos</span>
           </h1>
 
           {/* Subtítulo */}
-          <p className="text-lg sm:text-xl text-[#6b5435] mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-            Arte, técnica y exclusividad en restauración premium. Convertimos lo atemporal en un lujo contemporáneo para tu espacio.
+          <p className="animate-slide-up text-accent/80 mx-auto mb-12 max-w-2xl text-lg leading-relaxed font-light [animation-delay:200ms] sm:text-xl">
+            Arte, técnica y exclusividad en restauración premium. Convertimos lo
+            atemporal en un lujo contemporáneo para tu espacio.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button variant="primary" size="lg" className="shadow-xl">
+          {/* CTAs con hover effects mejorados */}
+          <div className="animate-slide-up flex flex-col items-center justify-center gap-6 [animation-delay:400ms] sm:flex-row">
+            <Button
+              variant="primary"
+              size="lg"
+              className="group min-w-[200px] shadow-xl transition-all hover:scale-105"
+            >
               Explorar Colección
-              <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              <span className="ml-2 transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </Button>
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="lg"
+              className="min-w-[200px] transition-all hover:bg-white/50"
+            >
               Solicitar Auditoría
             </Button>
           </div>
 
-          {/* Stats con estilo minimalista */}
-          <div className="mt-24 pt-12 border-t border-[#e8dcc8]/50 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-light text-[#4a3a24]">500+</div>
-              <div className="text-[10px] uppercase tracking-widest text-[#b89968] mt-2">Legados preservados</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-light text-[#4a3a24]">15</div>
-              <div className="text-[10px] uppercase tracking-widest text-[#b89968] mt-2">Años de maestría</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-light text-[#4a3a24]">98%</div>
-              <div className="text-[10px] uppercase tracking-widest text-[#b89968] mt-2">Visión compartida</div>
-            </div>
+          {/* Stats refinados con micro-animaciones */}
+          <div className="border-wood-200/50 mx-auto mt-24 grid max-w-2xl grid-cols-3 gap-8 border-t pt-12">
+            {[
+              { value: "500+", label: "Legados preservados" },
+              { value: "15", label: "Años de maestría" },
+              { value: "98%", label: "Visión compartida" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="group animate-fade-in text-center"
+                style={{ animationDelay: `${600 + i * 100}ms` }}
+              >
+                <div className="text-accent text-2xl font-light transition-transform group-hover:scale-110 sm:text-3xl">
+                  {stat.value}
+                </div>
+                <div className="text-primary mt-2 text-[9px] tracking-widest uppercase sm:text-[10px]">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Decoración de fondo sutil */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#f5f1e8] rounded-full blur-[120px] opacity-60"></div>
-        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-[#e8dcc8] rounded-full blur-[120px] opacity-40"></div>
+      {/* Decoración de fondo sutil (Luces de ambiente) */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="bg-wood-50 absolute top-[-10%] right-[-5%] h-[600px] w-[600px] rounded-full opacity-60 blur-[120px]"></div>
+        <div className="bg-wood-200 absolute bottom-[-10%] left-[-5%] h-[600px] w-[600px] rounded-full opacity-30 blur-[120px]"></div>
       </div>
     </section>
   );

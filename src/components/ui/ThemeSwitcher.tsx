@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from "@/contexts/ThemeContext";
+import { ThemeType } from "@/lib/theme-config";
 
 export default function ThemeSwitcher() {
   const { theme, setTheme, themeConfig } = useTheme();
@@ -10,21 +11,8 @@ export default function ThemeSwitcher() {
       <span className="text-sm font-medium opacity-70">Style:</span>
       <select
         value={theme}
-        onChange={(e) => setTheme(e.target.value as any)}
-        className="
-          px-4 py-2 
-          rounded-lg 
-          border border-current/20 
-          bg-surface/50 
-          backdrop-blur-sm
-          text-sm font-medium 
-          cursor-pointer 
-          hover:border-current/40 
-          focus:outline-none 
-          focus:ring-2 
-          focus:ring-primary/50
-          transition-all
-        "
+        onChange={(e) => setTheme(e.target.value as ThemeType)}
+        className="bg-surface/50 focus:ring-primary/50 cursor-pointer rounded-lg border border-current/20 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-all hover:border-current/40 focus:ring-2 focus:outline-none"
         title={themeConfig.description}
       >
         <option value="classic">Classic Luxury</option>

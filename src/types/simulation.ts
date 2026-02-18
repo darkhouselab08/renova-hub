@@ -15,22 +15,22 @@ export interface SimulationCapableProject {
   afterImage: string;
   technique: string;
   duration: string;
-  theme: 'classic' | 'dark' | 'hybrid';
+  theme: "classic" | "dark" | "hybrid";
   color: string;
   featured?: boolean;
-  
+
   // NEW: Simulation fields (optional for gradual migration)
   simulation?: {
     id: string; // Unique simulation identifier
     streamUrl?: string; // URL for Genie 3 video stream (720p @ 24fps)
-    status: 'pending' | 'generating' | 'ready' | 'error';
+    status: "pending" | "generating" | "ready" | "error";
     fallbackToImage: boolean; // If true, show static image instead of stream
   };
-  
+
   // NEW: 3D world state metadata
   worldState?: {
     hasInteractive3D: boolean; // Can user interact with this project?
-    supportedActions: ('rotate' | 'zoom' | 'changeLight' | 'changeFinish')[]; // Available interactions
+    supportedActions: ("rotate" | "zoom" | "changeLight" | "changeFinish")[]; // Available interactions
     initialViewAngle?: number; // Default camera angle (0-360)
   };
 }
@@ -43,7 +43,7 @@ export interface PointerCoordinates {
   x: number; // X coordinate relative to viewport
   y: number; // Y coordinate relative to viewport
   timestamp: number; // When the interaction occurred
-  action: 'click' | 'hover' | 'drag'; // Type of interaction
+  action: "click" | "hover" | "drag"; // Type of interaction
 }
 
 /**

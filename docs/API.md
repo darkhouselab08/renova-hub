@@ -363,7 +363,7 @@ export class APIError extends Error {
   constructor(
     public statusCode: number,
     public message: string,
-    public details?: any,
+    public details?: any
   ) {
     super(message);
   }
@@ -386,7 +386,7 @@ export function handleAPIError(error: unknown) {
         error: error.message,
         details: error.details,
       },
-      { status: error.statusCode },
+      { status: error.statusCode }
     );
   }
 
@@ -397,7 +397,7 @@ export function handleAPIError(error: unknown) {
       success: false,
       error: "Error interno del servidor",
     },
-    { status: 500 },
+    { status: 500 }
   );
 }
 ```

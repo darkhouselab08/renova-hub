@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
+import Script from "next/script";
 
 export default function GoogleAnalytics({ gaId }: { gaId: string }) {
   return (
@@ -26,10 +26,29 @@ export default function GoogleAnalytics({ gaId }: { gaId: string }) {
   );
 }
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: "event",
+      action: string,
+      params: {
+        event_category: string;
+        event_label: string;
+        value?: number;
+      }
+    ) => void;
+  }
+}
+
 // Helper para trackear eventos de la Fake Door
-export const trackEvent = (action: string, category: string, label: string, value?: number) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', action, {
+export const trackEvent = (
+  action: string,
+  category: string,
+  label: string,
+  value?: number
+) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", action, {
       event_category: category,
       event_label: label,
       value: value,
