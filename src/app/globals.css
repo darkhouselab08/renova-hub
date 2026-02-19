@@ -37,9 +37,13 @@
   /* Inherit from :root, or add specific refinements here */
 }
 
-/* Utility for Hamptons Gradient */
+/* Utility for Hamptons Gradient (Thematic) */
 .bg-hamptons-gradient {
-  background: radial-gradient(circle at top left, #fdfcfb 0%, #f8f5f0 100%);
+  background: radial-gradient(
+    circle at top left,
+    var(--color-surface) 0%,
+    var(--color-background) 100%
+  );
 }
 
 /* Smooth transitions when switching themes */
